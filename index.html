@@ -64,7 +64,7 @@
         section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
         .section-header { font-size: 3.5rem; margin-bottom: 3.5rem; color: #fff; text-align: left; }
 
-        /* About Section (Photo on Right) */
+        /* About Section */
         .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
         .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
         .about-img-container { flex: 0.8; display: flex; justify-content: center; }
@@ -75,12 +75,12 @@
         }
         .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
 
-        /* Unified Card Styles with Unified Hover Animation */
+        /* Card Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
             background: var(--glass); border: 1px solid var(--glass-border); 
             padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden;
+            position: relative; overflow: hidden; display: flex; flex-direction: column;
         }
         .card:hover { 
             background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); 
@@ -89,27 +89,33 @@
         
         .progress-badge { 
             position: absolute; top: 20px; right: 20px; background: var(--secondary); 
-            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase;
+            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800;
         }
 
-        .card-actions { margin-top: 20px; display: flex; align-items: center; gap: 15px; }
+        .card-actions { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
         .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
         .card-git { color: #fff; font-size: 1.3rem; cursor: pointer; transition: 0.3s; text-decoration: none; }
         .card-git:hover { color: var(--primary); transform: translateY(-3px); }
 
-        /* Skills Styles (Reference Style) */
+        /* Certificate Buttons */
+        .cert-btn {
+            background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary);
+            color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem;
+            font-weight: 600; text-decoration: none; transition: 0.3s;
+        }
+        .cert-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3); }
+
+        /* Skills Styles */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
         .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
         .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
 
-        /* Restored Education Layout */
+        /* Education Card Styling */
         .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
-        .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
         .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
-        .edu-card p { color: #94a3b8; font-size: 1.1rem; }
 
-        /* Restored Get in Touch Styles */
+        /* Contact Section */
         .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
         .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
         .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
@@ -126,9 +132,6 @@
         }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         .report-btn { display: inline-block; margin-top: 30px; padding: 12px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; transition: 0.3s; }
-        .report-btn:hover { background: var(--secondary); transform: translateY(-3px); }
-
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -142,6 +145,7 @@
             <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#experience">Experiences</a>
+            <a href="#certifications">Certifications</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
@@ -277,6 +281,78 @@
         </div>
     </section>
 
+    <section id="certifications">
+        <h2 class="section-header" data-aos="fade-up">Certifications & Professional Training</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <h3>ASIC Flow (VIT Vellore)</h3>
+                <p>Routing, Placement, Floorplanning, CTS, STA. Hands-on experience on using Cadence tools (Nclaunch, Genus, LEC, Innovus)...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert1')">More</span>
+                    <a href="https://drive.google.com/file/d/10sl-8iF89oT-Ex_cGS8PsLE696dLuup-/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Semiconductor Device Fabrication – Level 1</h3>
+                <p>Gained knowledge in TCAD using Sentaurus Process, Structure Editor, meshing, and device simulation. Explored device physics...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert2')">More</span>
+                    <a href="https://drive.google.com/file/d/1hIzbdhDyB1ciOAANKoU7xEfToyD9KrG5/view?usp=sharing" target="_blank" class="cert-btn">Cert 1</a>
+                    <a href="https://drive.google.com/file/d/1ATZtc2-0swIArByNa_HW9pNS4zBInv-Z/view?usp=sharing" target="_blank" class="cert-btn">Cert 2 (Marks)</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Semiconductor Device Fabrication – Level 2</h3>
+                <p>Training emphasized nanoscale details such as dielectric spacers, halo and pocket implants, and doping profiles...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert3')">More</span>
+                    <a href="https://drive.google.com/file/d/1O21anSNvZayoupKTOjo6IURAsqXgypVK/view?usp=sharing" target="_blank" class="cert-btn">Cert 1</a>
+                    <a href="https://drive.google.com/file/d/1M_HmNV_njiPyWjeZv6Y2bvc9oN0JqU43/view?usp=sharing" target="_blank" class="cert-btn">Cert 2</a>
+                    <a href="https://drive.google.com/file/d/1ZR3Z0ycdMSSiWQaAMt_QYQbxP4NOmIpF/view?usp=sharing" target="_blank" class="cert-btn">Cert 3 (Marks)</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Semiconductor Fabrication – Advanced Level</h3>
+                <p>Explored fab-oriented simulations using Sentaurus Process. Understanding fabrication operations and process development...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert4')">More</span>
+                    <a href="https://drive.google.com/file/d/1t4oxVYfgNTc5IOrPADD0z03gicFy1NwO/view?usp=sharing" target="_blank" class="cert-btn">Cert 1</a>
+                    <a href="https://drive.google.com/file/d/1QWsbP4V6GRW73go_NiR81vMlpdDOo8WE/view?usp=sharing" target="_blank" class="cert-btn">Cert 2</a>
+                    <a href="https://drive.google.com/file/d/1Tt7tnaukC1Mg1aoltIdwxAlkVxjmwcSl/view?usp=sharing" target="_blank" class="cert-btn">Cert 3 (Marks)</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Advanced Electronic Design (R&S)</h3>
+                <p>Knowledge across modules covering power integrity, signal integrity and RF performance testing for 5G/6G...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert5')">More</span>
+                    <a href="https://drive.google.com/file/d/1PBgkf3KxmHXOBM9n5FeLxW3tGJM57JnU/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Electrical Characterization (Tektronix)</h3>
+                <p>Measurements of electrical parameters during fabrication like Resistivity, Conductivity, Vth, leakage, and breakdown voltage.</p>
+                <div class="card-actions">
+                    <a href="https://drive.google.com/file/d/1hqMPD85SOhbzn-S1GsTryWclryVXNnFl/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>PCB Design (OrCAD & EasyEDA)</h3>
+                <p>5-day workshop on PCB Design. Hands-on experience on Cadence OrCAD and EasyEDA for visiting cards and rectifiers.</p>
+                <div class="card-actions">
+                    <a href="https://drive.google.com/file/d/15d4HmpuEzWHtNB-7cafhj189YWIhDmuH/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>Advanced Embedded System Design</h3>
+                <p>Learned about different architecture designs (especially RISC-V), memory designs, and EMI&EMC.</p>
+                <div class="card-actions">
+                    <a href="https://drive.google.com/file/d/1CxL_XNb_6ELaIgtnfRxEUWlv9MvHJ_2A/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <h2 class="section-header" data-aos="fade-right">Core Skills</h2>
         <div class="skills-grid" data-aos="fade-up">
@@ -313,15 +389,15 @@
     <section id="education">
         <h2 class="section-header" data-aos="fade-left">Education</h2>
         <div data-aos="fade-up">
-            <div class="edu-card" data-aos="fade-left">
+            <div class="edu-card">
                 <h4>B. Tech in ECE | VIT Vellore</h4>
                 <p>2022 - Present | <b>CGPA: 9.12/10</b></p>
             </div>
-            <div class="edu-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="edu-card">
                 <h4>Higher Secondary (Grade XII) | CBSE</h4>
                 <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
             </div>
-            <div class="edu-card" data-aos="fade-left" data-aos-delay="400">
+            <div class="edu-card">
                 <h4>Secondary (Grade X) | CBSE</h4>
                 <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
             </div>
@@ -357,15 +433,16 @@
             fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation.", report: "FFT_Report.pdf" },
             processor: { title: "16-bit Processor", body: "Implemented a custom 16-bit processor featuring a control unit, ALU, and IR register decoding for opcode operation.", report: "Processor_Report.pdf" },
             dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing.", report: null },
-            gps: { title: "Real-time GPS Tracking", body: "Worked on continuous location update in google maps using Raspberry Pi 4 and L80 GPS module.", report: "GPS_Report.pdf" },
+            gps: { title: "Real-time GPS Tracking", body: "Worked on continuous location update in google maps using API key. Interfaced L80 GPS module with Raspberry Pi 4 using Python and HTML.", report: "GPS_Report.pdf" },
             nit: { title: "Research Intern | NIT Trichy", body: "Researched hardware-efficient approximate multipliers using LUT-based adders and compressors. Implemented on Artix-7 FPGA.", report: "NIT_Report.pdf" },
             kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture for massive matrix multiplications and Otsu's thresholding implementation.", report: "Kineton_Report.pdf" },
-            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in RTL synthesis.", report: "Maven_Report.pdf" },
-            pub: { 
-                title: "Journal Contribution Details", 
-                body: "Created a LUT-based higher order adder (1st in the paper) used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from current 2025 IEEE Transactions papers. Converted two novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during internship at NIT Trichy.", 
-                report: null 
-            }
+            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in clock generation and RTL synthesis.", report: "Maven_Report.pdf" },
+            pub: { title: "Journal Contribution Details", body: "Created a LUT-based higher order adder used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from 2025 IEEE Transactions papers. Work conducted during internship at NIT Trichy.", report: null },
+            cert1: { title: "ASIC Flow Details", body: "Learned about Routing, Placement, Floorplanning, CTS, STA. Hands-on experience on using Cadence tools (Nclaunch, Genus, LEC, Innovus). Also did a task on generating GDS-II file for an ALU architecture which consists of Arithmetic, control, multiplexer and shifter units." },
+            cert2: { title: "Semiconductor Fabrication Level 1", body: "Gained knowledge in TCAD using Sentaurus Process, Structure Editor, meshing, device simulation, Workbench and visualization. Explored device physics studying how parameters affect carrier concentration, energy band diagrams and behavior of diodes, MOSCAPs, MOSFETs and BJTs. Designed and simulated 2D devices like resistors, diodes and MOSFETs." },
+            cert3: { title: "Semiconductor Fabrication Level 2", body: "Emphasized nanoscale details like dielectric spacers, halo and pocket implants, and junction-level doping profiles. Gained experience creating realistic Diode and MOSFET structures using scripting in Sentaurus Workbench. Analyzed nanoscale effects and debugged command files for accurate simulations." },
+            cert4: { title: "Semiconductor Fabrication Advanced Level", body: "Explored fab-oriented simulations using Sentaurus Process. Understanding fabrication operations, process development and calibration basics. Advanced concepts like mixed-mode simulations, AC/thermal analysis, RF device simulation, and parameter extraction using the full Synopsys TCAD suite." },
+            cert5: { title: "Advanced Electronic Design (R&S)", body: "Lectured by Rohde & Schwarz. Covered modules on power integrity, signal integrity and RF performance testing. Reliable power rail qualification, measurement techniques with oscilloscopes/probes, and RF testing for 5G/6G focusing on EVM and receiver sensitivity." }
         };
 
         function openModal(id) {
