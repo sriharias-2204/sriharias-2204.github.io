@@ -64,6 +64,17 @@
         section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
         .section-header { font-size: 3.5rem; margin-bottom: 3.5rem; color: #fff; text-align: left; }
 
+        /* About Section - Restored Side-by-Side */
+        .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
+        .about-img-container { flex: 0.8; display: flex; justify-content: center; }
+        .about-img-container img { 
+            width: 100%; max-width: 380px; border-radius: 40px; 
+            border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); 
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+        }
+        .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
+
         /* Card Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
@@ -90,14 +101,18 @@
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
         .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
-        .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); transition: 0.3s; }
 
-        /* Get in Touch Restored Animation */
+        /* Education Layout */
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
+        .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+
+        /* Contact Section Animation */
         .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
         .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
         .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
 
-        /* Modal Dialog Blur Effect */
+        /* Modal Blur Effect */
         .modal { 
             display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
             width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px);
@@ -108,12 +123,7 @@
             border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative;
         }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        .report-btn { 
-            display: inline-block; margin-top: 30px; padding: 12px 25px; 
-            background: var(--primary); color: white; text-decoration: none; 
-            border-radius: 12px; font-weight: 700; transition: 0.3s;
-        }
-        .report-btn:hover { background: var(--secondary); transform: translateY(-3px); }
+        .report-btn { display: inline-block; margin-top: 30px; padding: 12px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; transition: 0.3s; }
     </style>
 </head>
 <body>
@@ -143,7 +153,7 @@
         <div class="floating-icons">
             <i class="fas fa-microchip icon-3d" style="left: 20%; animation-delay: 0s;"></i>
             <i class="fas fa-memory icon-3d" style="left: 50%; animation-delay: 1.5s;"></i>
-            <i class="fas fa-project-diagram icon-3d" style="left: 80%; animation-delay: 3s;"></i>
+            <i class="fas fa-code icon-3d" style="left: 80%; animation-delay: 3s;"></i>
         </div>
     </header>
 
@@ -247,8 +257,8 @@
                 <p>Pipelined architecture for massive matrix multiplications and Otsu's thresholding implementation.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('kineton')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="card-git" title="Matrix Multiplication Repo"><i class="fab fa-github"></i></a>
-                    <a href="https://github.com/sriharias-2204" class="card-git" title="Image Segmentation Repo"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git" title="Matrix Repo"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git" title="Image Repo"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
@@ -295,6 +305,24 @@
         </div>
     </section>
 
+    <section id="education">
+        <h2 class="section-header" data-aos="fade-left">Education</h2>
+        <div data-aos="fade-up">
+            <div class="edu-card">
+                <h4>B. Tech in ECE | VIT Vellore</h4>
+                <p>2022 - Present | <b>CGPA: 9.12/10</b></p>
+            </div>
+            <div class="edu-card">
+                <h4>Higher Secondary (Grade XII) | CBSE</h4>
+                <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
+            </div>
+            <div class="edu-card">
+                <h4>Secondary (Grade X) | CBSE</h4>
+                <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="contact-box" data-aos="zoom-in">
             <h2 class="hero-title">Get in Touch</h2>
@@ -329,8 +357,8 @@
             kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture for massive matrix multiplications and Otsu's thresholding algorithm for image segmentation.", report: "Kineton_Report.pdf" },
             maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in clock generation and RTL synthesis.", report: "Maven_Report.pdf" },
             pub: { 
-                title: "Hardware-Efficient Approximate Multipliers", 
-                body: "<b>Contribution:</b><br>Created a LUT-based higher order adder used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from 2025 IEEE Transactions. Converted novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during NIT Trichy internship.", 
+                title: "Journal Contribution Details", 
+                body: "<b>My contribution:</b><br>Created a LUT-based higher order adder (1st in the paper) used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from current 2025 IEEE Transactions papers. Converted two novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during internship at NIT Trichy.", 
                 report: null 
             }
         };
