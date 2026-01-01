@@ -63,7 +63,7 @@
         .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; box-shadow: 20px 20px 60px rgba(0,0,0,0.5); }
         .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
 
-        /* Card Grid & Transitions */
+        /* Card Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; display: flex; flex-direction: column; }
         .card:hover { background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
@@ -71,7 +71,6 @@
         
         .progress-badge { position: absolute; top: 20px; right: 20px; background: var(--secondary); color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase; }
 
-        /* Report / Action Buttons */
         .card-actions { margin-top: auto; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
         .left-actions { display: flex; align-items: center; gap: 12px; }
         .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem; }
@@ -80,26 +79,26 @@
         .card-report { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s; cursor: pointer; }
         .card-report:hover { color: #fff; text-shadow: 0 0 10px var(--primary); }
 
-        /* Certification Buttons */
         .cert-btn { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: 0.3s; }
         .cert-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3); }
 
-        /* Education & Skills */
+        /* Skills Styles */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
         .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
         .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
 
+        /* Education & Transitions */
         .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
         .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
         .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
         .edu-card p { color: #94a3b8; font-size: 1.1rem; }
 
-        /* Contact & Modals */
         .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
         .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
         .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
 
+        /* Modal Dialog */
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px); }
         .modal-content { background: #0f172a; margin: 5% auto; padding: 60px; width: 85%; max-width: 850px; border-radius: 40px; border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative; max-height: 85vh; overflow-y: auto; }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
@@ -165,7 +164,7 @@
                         <span class="learn-more" onclick="openModal('fpu')">Learn More</span>
                         <a href="https://github.com/sriharias-2204/Runtime-Predictive-Hybrid-Floating-Point-Unit" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/1PZ-ED0tYL_QrfLg16AP_WvV5zKyOIinQ/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
@@ -186,7 +185,7 @@
                         <span class="learn-more" onclick="openModal('fft')">Learn More</span>
                         <a href="https://github.com/sriharias-2204/CORDIC-based-16-point-FFT-in-Verilog" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/1D5qtJwuv5uQI9fBJQH_m-kcD7dOBvQTe/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
@@ -198,7 +197,7 @@
                         <span class="learn-more" onclick="openModal('processor')">Learn More</span>
                         <a href="https://github.com/sriharias-2204/16-bit-Processor" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/19fKMwxtTMYC1wAUcfQaV9ELwpqSA2n--/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
@@ -219,7 +218,7 @@
                         <span class="learn-more" onclick="openModal('gps')">Learn More</span>
                         <a href="https://github.com/sriharias-2204/Real-Time-GPS-Tracking-System-using-Raspberry-Pi-4" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/1LFnadQmHbVffCVwG6Tm5AfA6S1B2jgVX/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
         </div>
@@ -241,6 +240,7 @@
         <h2 class="section-header" data-aos="fade-up">Research & Industry Experiences</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-university" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Research Intern | NIT Trichy</h3>
                 <p>Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.</p>
                 <div class="card-actions">
@@ -248,18 +248,20 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-industry" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>VLSI Intern | Kineton Technologies</h3>
                 <p>Developed pipelined architectures for matrix multiplications and Otsu's thresholding implementation.</p>
                 <div class="card-actions">
                     <div class="left-actions">
                         <span class="learn-more" onclick="openModal('kineton')">Learn More</span>
-                        <a href="https://github.com/sriharias-2204/FPGA-Optimized-Otsu-Thresholding-Algorithm" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
-                        <a href="https://github.com/sriharias-2204/32-bit-Floating-Point-Arithmetic" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/sriharias-2204/FPGA-Optimized-Otsu-Thresholding-Algorithm" target="_blank" class="card-git" title="Otsu Repo"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/sriharias-2204/32-bit-Floating-Point-Arithmetic" target="_blank" class="card-git" title="Arithmetic Repo"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/1TRXil2ETyO4I8N_fhaROWjjpmp0fs1zn/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>VLSI Intern | Maven Silicon</h3>
                 <p>Design and synthesis of an SPI Master Core with RTL verification in Verilog HDL.</p>
                 <div class="card-actions">
@@ -267,7 +269,7 @@
                         <span class="learn-more" onclick="openModal('maven')">Learn More</span>
                         <a href="https://github.com/sriharias-2204/SPI-Master-Core-with-Wishbone-Interface" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
-                    <a href="#" class="card-report">Report</a>
+                    <a href="https://drive.google.com/file/d/1v7JY96W6M6bSN7-e9e_vNPK5Dkq-7wHC/view?usp=sharing" target="_blank" class="card-report">Report</a>
                 </div>
             </div>
         </div>
@@ -285,7 +287,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Device Fabrication – Level 1</h3>
+                <h3>Fabrication – Level 1</h3>
                 <p>Gained knowledge in TCAD using Sentaurus Process, Structure Editor, meshing, device simulation, Workbench and visualization...</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('cert2')">More</span>
@@ -296,7 +298,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Device Fabrication – Level 2</h3>
+                <h3>Fabrication – Level 2</h3>
                 <p>Training emphasized nanoscale details such as dielectric spacers, halo and pocket implants, and junction-level doping profiles...</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('cert3')">More</span>
@@ -308,7 +310,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Device Fabrication – Advanced</h3>
+                <h3>Fabrication – Advanced Level</h3>
                 <p>Explored fab-oriented simulations using Sentaurus Process. In-depth understanding of fabrication operations and calibration...</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('cert4')">More</span>
@@ -320,30 +322,30 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Advanced Electronic Design (R&S)</h3>
-                <p>Lectured by Rohde & Schwarz, covered power integrity, signal integrity and RF performance testing for 5G/6G...</p>
+                <h3>Electronic Design (R&S)</h3>
+                <p>Knowledge covering power integrity, signal integrity and RF testing. reliable power rail qualification using oscilloscopes...</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('cert5')">More</span>
                     <a href="https://drive.google.com/file/d/1PBgkf3KxmHXOBM9n5FeLxW3tGJM57JnU/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Electrical Characterization (Tektronix)</h3>
-                <p>Accurate measurements of electrical parameters like Resistivity, Vth, Rds ON, and breakdown voltage during fabrication.</p>
+                <h3>Electrical Characterization</h3>
+                <p>Measurements of resistivity, conductivity, and device parameters like Vth, IDsat, and breakdown voltage (Tektronix training).</p>
                 <div class="card-actions">
                     <a href="https://drive.google.com/file/d/1hqMPD85SOhbzn-S1GsTryWclryVXNnFl/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>PCB Design (OrCAD & EasyEDA)</h3>
-                <p>Gained hands-on experience on Cadence OrCAD and EasyEDA. Designed Gerber/Drill files for a Full-Bridge Rectifier.</p>
+                <h3>PCB Design (OrCAD)</h3>
+                <p>Hands-on Cadence OrCAD workshop. Designed Gerber and Drill files for Bridge Rectifiers and dual-layer PCBs.</p>
                 <div class="card-actions">
                     <a href="https://drive.google.com/file/d/15d4HmpuEzWHtNB-7cafhj189YWIhDmuH/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <h3>Advanced Embedded System Design</h3>
-                <p>Learned about different architecture designs (especially RISC-V), memory designs and EMI & EMC considerations.</p>
+                <h3>Advanced Embedded Design</h3>
+                <p>Explored RISC-V Architecture, memory designs, EMI/EMC considerations, and advanced embedded system components.</p>
                 <div class="card-actions">
                     <a href="https://drive.google.com/file/d/1CxL_XNb_6ELaIgtnfRxEUWlv9MvHJ_2A/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
                 </div>
@@ -424,25 +426,26 @@
 
         const techData = {
             fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic. Completed physical design using Innovus Tool.", report: "FPU_Report.pdf" },
-            ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for Reflective Intelligent Surface (RIS) to enhance SNR in wireless links.", report: null },
-            fft: { title: "CORDIC FFT on FPGA", body: "Implementated a Radix-2 FFT using the Rotation Mode of the CORDIC Algorithm, optimized with a pipelined architecture for parallel processing of butterfly computations. Fast Fourier Transform (FFT) is a crucial algorithm in signal processing and I leveraged the CORDIC algorithm to efficiently compute sine and cosine values without using multipliers, making it highly hardware-friendly. By adopting a pipelined architecture, I maximized parallelism, allowing multiple butterfly computations to execute simultaneously, significantly improving processing speed. The design was carefully structured to balance latency, throughput, and resource utilization, ensuring an efficient and scalable implementation.<br><br>After coding the design in Verilog, I successfully deployed and tested it on an FPGA to validate its performance in real-time applications. The FPGA implementation allowed me to leverage parallel execution capabilities, ensuring high-speed computations suitable for DSP and communication systems.<br><br><b>Gained Knowledge :</b> CORDIC Algorithm, FFT Optimization, Pipelined Architectures and FPGA-based DSP Acceleration.", report: null },
-            processor: { title: "16-bit Processor", body: "This processor includes fundamental components such as 16-bit registers (including IR - for separating opcode), a multiplexer, an ALU, a control unit and a memory interface. The processor executes basic instructions like that of an 8051, controlled through a structured finite state machine. I ensured correct instruction execution by implementing a control sequencing mechanism that governs data flow across the registers and ALU operations.<br><br>After completing the Verilog implementation, I performed functional simulations to verify correctness before deploying the design on an FPGA.<br><br><b>Gained Knowledge :</b> Processor Architecture, Control Signal Coordination, Memory Interfacing and System-level Debugging.", report: null },
-            dnn: { title: "DNN Convolution Operator", body: "MAC units for ML formats (bfloat16) for edge-device ASIC inferencing.", report: null },
-            gps: { title: "Real-time GPS Tracking", body: "<b>Objective:</b><br>The goal was to extract critical GPS information such as latitude, longitude, altitude, fix quality, number of satellites, and Horizontal Dilution of Precision (HDOP). This data was then processed and displayed dynamically on Google Maps. This project involved exploring GPS data acquisition, processing and real-time tracking.<br><br><b>Components Used:</b><br>Raspberry Pi 4, L80 GPS Module, USB to RS232 Converter, and Power Cables.<br><br><b>Process:</b><br>We developed a Python program that interfaced with the GPS module via the serial port using libraries like pyserial and pynmea2. The Python code captured and parsed NMEA sentences to extract real-time GPS coordinates, which included detailed data such as fix quality and number of satellites.This information was then printed to the terminal for analysis.<br>To enhance the project, I integrated a real-time map update feature using Google Maps.This required setting up a Flask web server and using WebSockets (via Flask-SocketIO) to continuously push updated GPS data to a client-side HTML/JavaScript app.The map dynamically displayed the current location, which was updated every second based on the GPS coordinates.<br><br><b>Challenges and Solutions:</b><br>During the project, we faced issues with port compatibility and library versioning. Using commands like 'pip install pyserial==version' and 'pip install pynmea2', I resolved these compatibility issues, ensuring smooth communication between the Raspberry Pi and GPS module.<br><br><b>Outcome:</b><br>By executing the program,the system continuously provided accurate GPS coordinates, updating the user’s real-time location on Google Maps.This solution can be adapted for applications such as vehicle tracking or navigation systems.", report: null },
-            nit: { title: "Research Intern | NIT Trichy", body: "Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.", report: null },
-            kineton: { title: "VLSI Intern | Kineton", body: "Pipelined matrix multiplications and Otsu's image segmentation.", report: "Kineton_Report.pdf" },
-            maven: { title: "VLSI Intern | Maven Silicon", body: "<b>Project Overview:</b><br>SPI is a popular synchronous communication protocol used in embedded systems for interfacing peripherals like sensors, ADCs, and DACs. My focus was on designing the SPI Master Core, which controls data exchange between the master and slave devices. The core supports full-duplex communication and is configured to handle flexible word lengths and multiple slave devices.<br><br><b>Key Components:</b><br><b>SPI Core Architecture:</b><br>The core architecture consists of two critical blocks: the Clock Generation Block and the Shift Register Block. The Clock Generation Block creates the clock signal that controls data transmission timing, while the Shift Register Block handles parallel-to-serial conversion for data transmission and serial-to-parallel conversion for data reception.<br><b>Registers:</b><br>The Transmitter (Tx) and Receiver (Rx) Registers store data for transmission and reception. The 32-bit registers can handle varying word lengths, making the core adaptable to different devices and communication needs.<br><b>Core Configuration:</b><br>The core supports configurable parameters like the number of slave devices (up to 32), word length (up to 128 bits), and transmission order (MSB/LSB first). These features make the core highly adaptable to different embedded system designs.<br><br><b>Simulation and Synthesis:</b><br>I verified the design using simulation tools to ensure the SPI core operated correctly under various conditions. After confirming the functionality, I synthesized the design to convert the Verilog code into a gate-level representation. The synthesis process optimized the core for performance, area, and power efficiency, preparing it for potential hardware implementation.", report: null },
-            pub: { title: "Journal Details", body: "Created a LUT-based higher order adder (1st in paper). Proven more efficient than 2025 IEEE Transactions. Work done at NIT Trichy." },
-            cert1: { title: "ASIC Flow (VIT Vellore)", body: "Learned about Routing, Placement, Floorplanning, CTS, STA. Hands-on experience on using Cadence tools (Nclaunch, Genus, LEC, Innovus). Also did a task on generating GDS-II file for an ALU architecture which consists of Arithmetic, control, multiplexer and shifter units." },
-            cert2: { title: "Fabrication – Level 1", body: "Gained knowledge in TCAD using Sentaurus Process, Structure Editor, meshing, device simulation, Workbench and visualization. Explored device physics, studying how parameters affect carrier concentration, energy band diagrams and behavior of diodes, MOSCAPs, MOSFETs and BJTs. Designed and simulated 2D devices such as resistors, diodes and MOSFETs." },
-            cert3: { title: "Fabrication – Level 2", body: "The training emphasized nanoscale details such as dielectric spacers, halo and pocket implants, and junction-level doping profiles. Gained hands-on experience in creating realistic Diode and MOSFET structures using scripting in Sentaurus Workbench. Writing and debugging command files under expert guidance helped me understand critical parameters for successful simulations." },
-            cert4: { title: "Fabrication – Advanced Level", body: "Explored fab-oriented simulations using Sentaurus Process (1D, 2D and 3D). Provided in-depth understanding of fabrication operations, process development and calibration basics. Learned advanced concepts such as mixed-mode simulations, RF device simulation, and parameter extraction using the full Synopsys TCAD suite." },
-            cert5: { title: "Advanced Electronic Design (R&S)", body: "Lectured by Rohde & Schwarz. Covered multiple modules on power integrity, signal integrity and RF performance testing. Learned about reliable power rail qualification, measurement techniques using oscilloscopes/probes, and RF testing for 5G/6G focusing on EVM and receiver sensitivity." }
+            ris: { title: "RIS Phase Shifter", body: "Digital architecture for Reflective Intelligent Surface (RIS) to enhance SNR in wireless links.", report: null },
+            fft: { title: "CORDIC FFT on FPGA", body: "Implemented a Radix-2 FFT using Rotation Mode CORDIC. Optimized with a pipelined architecture for parallel processing. Gained knowledge in multiplier-less DSP hardware.", report: null },
+            processor: { title: "16-bit Processor", body: "Custom processor with ALU, control unit, and opcode decoding logic. Interconnected units via structured buses.", report: null },
+            dnn: { title: "DNN Convolution Operator", body: "MAC units for edge ASIC inferencing using lightweight architectures.", report: null },
+            gps: { title: "Real-time GPS Tracking", body: "Interfaced Raspberry Pi 4 with GPS module to update continuous location coordinates on Google Maps API.", report: null },
+            nit: { title: "Research Intern | NIT Trichy", body: "Optimized hardware multipliers using LUT6_2 and CARRY4 primitives on Artix-7 FPGA.", report: null },
+            kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architectures for matrix multiplications and Otsu image segmentation.", report: "Kineton_Report.pdf" },
+            maven: { title: "VLSI Intern | Maven Silicon", body: "SPI Master Core design with flexible word lengths and clock generation logic.", report: null },
+            pub: { title: "Journal Contribution", body: "Created LUT-based higher order adder. Proven more efficient than 2025 IEEE Transactions papers. Internship work at NIT Trichy." },
+            cert1: { title: "ASIC Flow Training", body: "Full physical design flow: Floorplanning, Placement, CTS, and STA using Cadence Genus and Innovus." },
+            cert2: { title: "Device Fab Level 1", body: "Gained knowledge in TCAD using Sentaurus. Explored device physics of diodes, MOSFETs, and BJTs using workbench visualizations." },
+            cert3: { title: "Device Fab Level 2", body: "Focused on nanoscale details: spacers, halo implants, and doping profiles. Hands-on MOSFET structure scripting." },
+            cert4: { title: "Advanced Fabrication", body: "Fab-oriented process simulations, AC/Thermal analysis, and parameter extraction using Synopsys suite." },
+            cert5: { title: "Electronic Design (R&S)", body: "Power and signal integrity qualification for 5G/6G systems using Rohde & Schwarz testing methodologies." }
         };
 
         function openModal(id) {
             const d = techData[id];
-            let reportHtml = d.report ? `<a href="reports/${d.report}" target="_blank" class="report-btn">View Full Report (PDF)</a>` : "";
+            // Only show report button in modal if it's FPU, Kineton, or others specified previously as having internal report buttons
+            let reportHtml = (d.report && !["maven", "gps", "fft", "processor"].includes(id)) ? `<a href="reports/${d.report}" target="_blank" class="report-btn">View Full Report (PDF)</a>` : "";
             document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--primary); margin-bottom:1.5rem;">${d.title}</h2><div style="line-height:1.8;">${d.body}</div>${reportHtml}`;
             document.getElementById('projectModal').style.display = "block";
             document.body.style.overflow = "hidden";
