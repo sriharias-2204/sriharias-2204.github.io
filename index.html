@@ -430,7 +430,8 @@
         const techData = {
             fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven precision selection. Completed physical design using Innovus Tool.", report: "FPU_Report.pdf" },
             ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links.", report: null },
-            fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation.", report: "FFT_Report.pdf" },
+            fft: { title: "FFT on FPGA", body: "Implementated a Radix-2 FFT using the Rotation Mode of the CORDIC Algorithm, optimized with a pipelined architecture for parallel processing of butterfly computations. Fast Fourier Transform (FFT) is a crucial algorithm in signal processing and I leveraged the CORDIC algorithm to efficiently compute sine and cosine values without using multipliers, making it highly hardware-friendly. By adopting a pipelined architecture, I maximized parallelism, allowing multiple butterfly computations to execute simultaneously, significantly improving processing speed. The design was carefully structured to balance latency, throughput, and resource utilization, ensuring an efficient and scalable implementation.After coding the design in Verilog, I successfully deployed and tested it on an FPGA to validate its performance in real-time applications. The FPGA implementation allowed me to leverage parallel execution capabilities, ensuring high-speed computations suitable for DSP and communication systems.
+", report: "FFT_Report.pdf" },
             processor: { title: "16-bit Processor", body: "Implemented a custom 16-bit processor featuring a control unit, ALU, and IR register decoding for opcode operation.", report: "Processor_Report.pdf" },
             dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing.", report: null },
             gps: { title: "Real-time GPS Tracking", body: "Worked on continuous location update in google maps using API key. Interfaced L80 GPS module with Raspberry Pi 4 using Python and HTML.", report: "GPS_Report.pdf" },
@@ -461,4 +462,5 @@
     </script>
 </body>
 </html>
+
 
