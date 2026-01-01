@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Hari AS | VLSI Portfolio</title>
+    <title>Sri Hari AS | VLSI & ASIC Portfolio</title>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Animated Background */
+        /* Animated Background Blur */
         .bg-blur {
             position: fixed;
             width: 600px; height: 600px;
@@ -37,6 +37,7 @@
         }
         @keyframes move { from { transform: translate(-20%, -20%); } to { transform: translate(120%, 90%); } }
 
+        /* Navbar */
         nav { 
             background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(15px); 
             padding: 1.2rem 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
@@ -45,6 +46,7 @@
         .nav-links a { text-decoration: none; color: #94a3b8; margin-left: 2rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
+        /* Hero Section */
         header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero-title { font-size: 5rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
@@ -53,7 +55,7 @@
         .hero-contact a:hover { color: var(--primary); transform: translateY(-8px); filter: drop-shadow(0 0 15px var(--primary)); }
 
         section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
-        .section-header { font-size: 3rem; margin-bottom: 3rem; color: #fff; text-align: left; }
+        .section-header { font-size: 3.5rem; margin-bottom: 3.5rem; color: #fff; text-align: left; }
 
         /* About Section */
         .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
@@ -61,34 +63,53 @@
         .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; }
         .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg); }
 
-        /* Unified Grid Style */
+        /* Unified Card Styles (Projects & Experience) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
             background: var(--glass); border: 1px solid var(--glass-border); 
-            padding: 2.5rem; border-radius: 28px; transition: 0.4s; cursor: pointer;
+            padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; position: relative; overflow: hidden;
         }
-        .card:hover { background: rgba(255,255,255,0.07); transform: translateY(-12px); border-color: var(--primary); }
+        .card:hover { 
+            background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); 
+            border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .card h3 { color: #fff; margin-bottom: 1rem; font-size: 1.4rem; }
 
-        /* Education Timeline Style */
-        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2rem; margin-bottom: 2rem; border-radius: 0 20px 20px 0; }
-        .edu-card h4 { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
-        .edu-card p { color: #94a3b8; }
+        /* Core Skills Section (Image Style) */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
+        .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
+        .skill-item { 
+            background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; 
+            margin-bottom: 10px; border-left: 3px solid var(--primary); transition: 0.3s;
+        }
+        .skill-item:hover { transform: translateX(10px); background: rgba(99, 102, 241, 0.1); }
 
-        /* Skills Layout */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .skill-box { background: var(--glass); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .skill-box:hover { border-color: var(--secondary); background: rgba(168, 85, 247, 0.05); }
-        .skill-list { list-style: none; margin-top: 10px; font-size: 0.9rem; color: #cbd5e1; }
+        /* Education Timeline */
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
+        .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
+        .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
 
-        /* Contact Section */
-        .contact-box { text-align: center; background: var(--glass); padding: 4rem; border-radius: 40px; border: 1px solid var(--primary); }
-        .contact-box h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .contact-link { display: block; font-size: 1.5rem; color: var(--primary); text-decoration: none; margin: 10px 0; transition: 0.3s; cursor: pointer; }
-        .contact-link:hover { letter-spacing: 2px; color: #fff; }
+        /* Get in Touch Section */
+        .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
 
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(25px); }
-        .modal-content { background: #0f172a; margin: 5% auto; padding: 60px; width: 85%; max-width: 850px; border-radius: 40px; border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative; }
+        /* Modal Dialog with Webpage Blur Effect */
+        .modal { 
+            display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(15, 23, 42, 0.7); /* Translucent overlay */
+            backdrop-filter: blur(15px); /* Blurs the webpage background */
+        }
+        .modal-content { 
+            background: #0f172a; margin: 5% auto; padding: 60px; 
+            width: 85%; max-width: 850px; border-radius: 40px; 
+            border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative;
+        }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        .close-btn { position: absolute; top: 25px; right: 35px; color: #fff; font-size: 2.5rem; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -100,6 +121,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
@@ -120,7 +142,7 @@
         <div class="about-wrapper">
             <div class="about-content" data-aos="fade-right">
                 <h2 class="section-header">About Me</h2>
-                <p>A passionate and driven Electronics and Communication Engineering undergraduate at <b>VIT Vellore</b>, with a strong focus on <b>VLSI system design</b>, digital hardware architectures, and <b>ASIC implementation</b>. My expertise lies in RTL design, approximate and mixed-precision arithmetic, and hardware acceleration for signal processing and AI workloads, supported by hands-on experience in FPGA prototyping and full ASIC flows up to <b>GDS-II</b>[cite: 5]. I am deeply motivated by research and innovation in energy-efficient computing and silicon-level optimization, and I constantly strive to translate complex algorithms into high-performance, real-world hardware solutions[cite: 6, 7].</p>
+                <p>A passionate and driven Electronics and Communication Engineering undergraduate at <b>VIT Vellore</b>, with a strong focus on <b>VLSI system design</b>, digital hardware architectures, and <b>ASIC implementation</b>. My expertise lies in RTL design, approximate and mixed-precision arithmetic, and hardware acceleration for signal processing and AI workloads, supported by hands-on experience in FPGA prototyping and full ASIC flows up to <b>GDS-II</b>. I am deeply motivated by research and innovation in energy-efficient computing and silicon-level optimization, and I constantly strive to translate complex algorithms into high-performance, real-world hardware solutions.</p>
             </div>
             <div class="about-img-container" data-aos="zoom-in">
                 <img src="Formal Picture.jpg" alt="Sri Hari AS">
@@ -132,62 +154,100 @@
         <h2 class="section-header" data-aos="fade-up">Projects</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up" onclick="openModal('fpu')">
+                <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Runtime Hybrid FPU Chip</h3>
-                <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic[cite: 36, 37].</p>
+                <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic.</p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('ris')">
+                <i class="fas fa-satellite-dish" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>RIS Phase Shifter</h3>
-                <p>ASIC-level digital architecture for Reflective Intelligent Surface (RIS) to enhance SNR[cite: 40, 41].</p>
+                <p>ASIC-level digital architecture for Reflective Intelligent Surfaces to enhance SNR.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('fft')">
+                <i class="fas fa-wave-square" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>CORDIC FFT on FPGA</h3>
+                <p>16-point Radix-2 FFT implementation with twiddle factor generation via CORDIC.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('processor')">
+                <i class="fas fa-cpu" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>16-bit Processor</h3>
+                <p>Custom 16-bit processor with integrated ALU, Control Unit, and IR register decoding.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openModal('dnn')">
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>DNN Convolution Operator</h3>
+                <p>MAC units for ML formats (bfloat16) optimized for edge-device ASIC inferencing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-header" data-aos="fade-up">Experience</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up" onclick="openModal('nit')">
+                <h3>Research Intern | NIT Trichy</h3>
+                <p>Developed approximate multipliers using LUT6_2 and CARRY4 primitives on Artix-7 FPGA.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('kineton')">
+                <h3>VLSI Intern | Kineton Technologies</h3>
+                <p>Engineered pipelined matrix multiplication architectures and Otsu's segmentation algorithm.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('maven')">
+                <h3>VLSI Intern | Maven Silicon</h3>
+                <p>Designed an SPI Master Core with full synthesis and RTL verification in Verilog HDL.</p>
             </div>
         </div>
     </section>
 
     <section id="skills">
         <h2 class="section-header" data-aos="fade-right">Core Skills</h2>
-        <div class="skills-container" data-aos="fade-up">
-            <div class="skill-box">
-                <h4><i class="fas fa-code"></i> Languages</h4>
-                <ul class="skill-list">
-                    <li>Verilog HDL & SystemVerilog </li>
-                    <li>Python (PyTorch) </li>
-                    <li>C++, Assembly (8051) </li>
-                </ul>
+        <div class="skills-grid" data-aos="fade-up">
+            <div class="skills-col">
+                <h3>Languages</h3>
+                <div class="skill-item">Verilog HDL</div>
+                <div class="skill-item">SystemVerilog</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">Assembly (8051)</div>
             </div>
-            <div class="skill-box">
-                <h4><i class="fas fa-tools"></i> EDA Tools</h4>
-                <ul class="skill-list">
-                    <li>Cadence (Genus, Innovus, Virtuoso) </li>
-                    <li>Synopsys TCAD Suite </li>
-                    <li>Xilinx Vivado, Quartus Prime </li>
-                </ul>
+            <div class="skills-col">
+                <h3>EDA Tools</h3>
+                <div class="skill-item">Cadence Suite</div>
+                <div class="skill-item">Synopsys TCAD suite</div>
+                <div class="skill-item">ModelSim</div>
+                <div class="skill-item">Quartus Prime</div>
+                <div class="skill-item">Xilinx Vivado</div>
+                <div class="skill-item">NI Multisim</div>
+                <div class="skill-item">MATLAB</div>
+                <div class="skill-item">Keil Microvision</div>
+                <div class="skill-item">OrCAD</div>
             </div>
-            <div class="skill-box">
-                <h4><i class="fas fa-microchip"></i> Concepts</h4>
-                <ul class="skill-list">
-                    <li>RTL to GDSII Flow </li>
-                    <li>FPGA Architecture </li>
-                    <li>Digital Signal Processing </li>
-                </ul>
+            <div class="skills-col">
+                <h3>Concepts</h3>
+                <div class="skill-item">ASIC Flow</div>
+                <div class="skill-item">VLSI System Design</div>
+                <div class="skill-item">FPGA Architecture</div>
+                <div class="skill-item">Semiconductor Physics & Devices</div>
+                <div class="skill-item">Analog Circuits</div>
+                <div class="skill-item">Digital Systems Design</div>
             </div>
         </div>
     </section>
-    
-    
 
     <section id="education">
         <h2 class="section-header" data-aos="fade-left">Education</h2>
         <div data-aos="fade-up">
             <div class="edu-card">
                 <h4>B. Tech in ECE | VIT Vellore</h4>
-                <p>2022 - Present | <b>CGPA: 9.12/10</b> </p>
+                <p>2022 - Present | <b>CGPA: 9.12/10</b></p>
             </div>
             <div class="edu-card">
-                <h4>Higher Secondary | CBSE</h4>
-                <p>2022 | National Model Senior Secondary School | <b>93.60%</b> </p>
+                <h4>Higher Secondary (Grade XII) | CBSE</h4>
+                <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
             </div>
             <div class="edu-card">
-                <h4>Secondary | CBSE</h4>
-                <p>2020 | KMC Public Senior Secondary School | <b>92%</b> </p>
+                <h4>Secondary (Grade X) | CBSE</h4>
+                <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
             </div>
         </div>
     </section>
@@ -195,15 +255,15 @@
     <section id="contact">
         <div class="contact-box" data-aos="zoom-in">
             <h2 class="hero-title">Get in Touch</h2>
-            <p style="margin-bottom: 20px;">Let's discuss VLSI architecture and innovation.</p>
-            <a href="mailto:sriharias2204@gmail.com" class="contact-link">sriharias2204@gmail.com [cite: 3]</a>
-            <a href="tel:+918870555334" class="contact-link">+91 8870555334 [cite: 2]</a>
+            <p style="margin-bottom: 30px; font-size: 1.2rem; color: #94a3b8;">Interested in collaboration or professional inquiries?</p>
+            <a href="mailto:sriharias2204@gmail.com" class="contact-link">sriharias2204@gmail.com</a>
+            <a href="tel:+918870555334" class="contact-link">+91 8870555334</a>
         </div>
     </section>
 
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span style="color:#fff; float:right; cursor:pointer; font-size:2rem;" onclick="closeModal()">&times;</span>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
             <div id="modalBody"></div>
         </div>
     </div>
@@ -216,14 +276,20 @@
     <script>
         AOS.init({ duration: 1000, once: false });
 
-        const techData = {
-            fpu: { title: "Runtime Hybrid FPU", body: "Designed hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic. Implemented an FSM for dynamic precision selection on a 90nm ASIC flow[cite: 36, 37, 38]." },
-            ris: { title: "RIS Phase Shifter", body: "Digital architecture for Reflective Intelligent Surface (RIS). Implemented computation modules including matrix multiplication and Hamilton operators to enhance SNR[cite: 40, 41, 42]." }
+        const data = {
+            fpu: { title: "Runtime Hybrid FPU Chip", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven precision selection. Achieved lower power and area on a 90 nm ASIC flow using Cadence Genus and Conformal LEC. Completed physical design using Innovus." },
+            ris: { title: "RIS Phase Shifter Architecture", body: "Designed a complete digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links. Implemented computation modules including complex fixed-point matrix multiplication and Hamilton operators." },
+            fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation in Verilog HDL." },
+            processor: { title: "16-bit Processor", body: "Implemented a 16-bit processor featuring a custom control unit, ALU, and various registers. Designed an IR register to separate opcodes for decoding operations." },
+            dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML inferencing. Optimized DenseNet121 model for lightweight chest X-ray classification on ASIC hardware." },
+            nit: { title: "NIT Trichy Research Internship", body: "Researched hardware-efficient approximate multipliers using LUT-based adders and compressors. Optimized designs using LUT6_2 and CARRY4 primitives on Artix-7 FPGA." },
+            kineton: { title: "Kineton Technologies VLSI Intern", body: "Developed pipelined architectures for massive matrix multiplications and implemented Otsu's thresholding algorithm for image segmentation in Verilog." },
+            maven: { title: "Maven Silicon VLSI Intern", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in clock generation, shift register blocks, and RTL synthesis." }
         };
 
         function openModal(id) {
-            const d = techData[id];
-            document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--primary); margin-bottom:1.5rem;">${d.title}</h2><p style="font-size:1.2rem; line-height:1.7;">${d.body}</p>`;
+            const d = data[id];
+            document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--primary); margin-bottom:1.5rem; font-size:2.2rem;">${d.title}</h2><p style="font-size:1.3rem; line-height:1.8;">${d.body}</p>`;
             document.getElementById('projectModal').style.display = "block";
             document.body.style.overflow = "hidden";
         }
