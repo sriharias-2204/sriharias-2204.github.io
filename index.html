@@ -21,16 +21,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: var(--dark); 
-            color: #e2e8f0; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            background: var(--dark); color: #e2e8f0; overflow-x: hidden; scroll-behavior: smooth;
         }
 
         /* Animated Background Blur */
         .bg-blur {
-            position: fixed;
-            width: 600px; height: 600px;
+            position: fixed; width: 600px; height: 600px;
             background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
             filter: blur(140px); opacity: 0.12; z-index: -1;
             animation: move 25s infinite alternate ease-in-out;
@@ -46,19 +42,15 @@
         .nav-links a { text-decoration: none; color: #94a3b8; margin-left: 2rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* Hero Section with 3D Icons */
+        /* Hero Section with Restored Icons */
         header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero-title { font-size: 5rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
         .hero-contact { margin-top: 30px; display: flex; gap: 25px; }
         .hero-contact a { color: #fff; font-size: 1.8rem; transition: 0.4s; cursor: pointer; }
         .hero-contact a:hover { color: var(--primary); transform: translateY(-8px); filter: drop-shadow(0 0 15px var(--primary)); }
 
         .floating-icons { position: relative; height: 80px; width: 100%; margin-top: 2rem; }
-        .icon-3d { 
-            font-size: 3rem; color: var(--primary); position: absolute; 
-            animation: float 4s infinite ease-in-out; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-        }
+        .icon-3d { font-size: 3rem; color: var(--primary); position: absolute; animation: float 4s infinite ease-in-out; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
 
         section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
@@ -68,49 +60,45 @@
         .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
         .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
         .about-img-container { flex: 0.8; display: flex; justify-content: center; }
-        .about-img-container img { 
-            width: 100%; max-width: 380px; border-radius: 40px; 
-            border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); 
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
-        }
+        .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; box-shadow: 20px 20px 60px rgba(0,0,0,0.5); }
         .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
 
-        /* Unified Card Styles */
+        /* Restored Card Grid & Unified Animations */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
-        .card { 
-            background: var(--glass); border: 1px solid var(--glass-border); 
-            padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden; display: flex; flex-direction: column;
-        }
-        .card:hover { 
-            background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); 
-            border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .card:hover { background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card h3 { color: #fff; margin-bottom: 1rem; font-size: 1.4rem; }
         
-        .progress-badge { 
-            position: absolute; top: 20px; right: 20px; background: var(--secondary); 
-            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase;
-        }
+        .progress-badge { position: absolute; top: 20px; right: 20px; background: var(--secondary); color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase; }
 
-        /* Action Bar for Cards */
         .card-actions { margin-top: auto; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; }
-        .left-actions { display: flex; align-items: center; gap: 15px; }
-        .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
+        .left-actions { display: flex; align-items: center; gap: 12px; }
+        .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem; }
         .card-git { color: #fff; font-size: 1.2rem; cursor: pointer; transition: 0.3s; text-decoration: none; }
-        .card-git:hover { color: var(--primary); transform: translateY(-3px); }
-        .card-report { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .card-git:hover { color: var(--primary); transform: translateY(-2px); }
+        .card-report { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s; cursor: pointer; }
         .card-report:hover { color: #fff; text-shadow: 0 0 10px var(--primary); }
 
-        /* Modal Blur Effect */
-        .modal { 
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
-            width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px);
-        }
-        .modal-content { 
-            background: #0f172a; margin: 5% auto; padding: 60px; 
-            width: 85%; max-width: 850px; border-radius: 40px; 
-            border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative;
-        }
+        /* Skills Styles */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
+        .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
+
+        /* Restored Education Section */
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
+        .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
+        .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+        .edu-card p { color: #94a3b8; font-size: 1.1rem; }
+
+        /* Restored Get in Touch Styles */
+        .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
+
+        /* Modal Dialog Blur Effect */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px); }
+        .modal-content { background: #0f172a; margin: 5% auto; padding: 60px; width: 85%; max-width: 850px; border-radius: 40px; border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative; max-height: 85vh; overflow-y: auto; }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         .report-btn { display: inline-block; margin-top: 30px; padding: 12px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; transition: 0.3s; }
 
@@ -128,7 +116,9 @@
             <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#experience">Experiences</a>
+            <a href="#certifications">Certifications</a>
             <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -164,6 +154,7 @@
         <h2 class="section-header" data-aos="fade-up">Projects</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Runtime Hybrid FPU Chip</h3>
                 <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic.</p>
                 <div class="card-actions">
@@ -176,6 +167,7 @@
             </div>
             <div class="card" data-aos="fade-up">
                 <span class="progress-badge">In Progress</span>
+                <i class="fas fa-satellite-dish" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>RIS Phase Shifter Architecture</h3>
                 <p>Digital architecture for Reflective Intelligent Surface (RIS) to enhance wireless SNR.</p>
                 <div class="card-actions">
@@ -183,6 +175,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-wave-square" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>CORDIC FFT on FPGA</h3>
                 <p>16-point Radix-2 FFT implementation with twiddle factor generation via CORDIC.</p>
                 <div class="card-actions">
@@ -194,6 +187,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-project-diagram" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>16-bit Processor</h3>
                 <p>Custom 16-bit processor with integrated ALU, Control Unit, and IR register decoding.</p>
                 <div class="card-actions">
@@ -206,6 +200,7 @@
             </div>
             <div class="card" data-aos="fade-up">
                 <span class="progress-badge">In Progress</span>
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>DNN Convolution Operator</h3>
                 <p>MAC units for ML formats (bfloat16) optimized for edge-device ASIC inferencing.</p>
                 <div class="card-actions">
@@ -213,6 +208,7 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Real-time GPS Location Tracking</h3>
                 <p>Continuous location update on Google Maps using Raspberry Pi 4 and L80 GPS module.</p>
                 <div class="card-actions">
@@ -231,8 +227,7 @@
         <div class="card" data-aos="fade-up" style="width: 100%;">
             <span class="progress-badge">Under Review</span>
             <h3 style="color: var(--primary);">Hardware-Efficient Approximate Multipliers Using LUT-Based Compressors and Adders</h3>
-            <p style="margin: 10px 0;"><b>Publication:</b> Springer Journals</p>
-            <p style="margin-bottom: 20px;"><b>Journal:</b> Arabian Journal for Science and Engineering</p>
+            <p style="margin: 10px 0;"><b>Publication:</b> Springer Journals | Arabian Journal for Science and Engineering</p>
             <div class="card-actions">
                 <span class="learn-more" onclick="openModal('pub')">Learn More</span>
             </div>
@@ -243,6 +238,7 @@
         <h2 class="section-header" data-aos="fade-up">Research & Industry Experiences</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-university" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Research Intern | NIT Trichy</h3>
                 <p>Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.</p>
                 <div class="card-actions">
@@ -250,18 +246,20 @@
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-industry" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>VLSI Intern | Kineton Technologies</h3>
                 <p>Developed pipelined architectures for matrix multiplications and Otsu's thresholding implementation.</p>
                 <div class="card-actions">
                     <div class="left-actions">
                         <span class="learn-more" onclick="openModal('kineton')">Learn More</span>
-                        <a href="https://github.com/sriharias-2204/FPGA-Optimized-Otsu-Thresholding-Algorithm" target="_blank" class="card-git" title="Otsu Repo"><i class="fab fa-github"></i></a>
-                        <a href="https://github.com/sriharias-2204/32-bit-Floating-Point-Arithmetic" target="_blank" class="card-git" title="Matrix Repo"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/sriharias-2204/FPGA-Optimized-Otsu-Thresholding-Algorithm" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/sriharias-2204/32-bit-Floating-Point-Arithmetic" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
                     </div>
                     <a href="#" class="card-report">Report</a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
+                <i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>VLSI Intern | Maven Silicon</h3>
                 <p>Design and synthesis of an SPI Master Core with RTL verification in Verilog HDL.</p>
                 <div class="card-actions">
@@ -271,6 +269,70 @@
                     </div>
                     <a href="#" class="card-report">Report</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-header" data-aos="fade-up">Certifications & Training</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <h3>ASIC Flow (VIT Vellore)</h3>
+                <p>Routing, Placement, Floorplanning, CTS, STA. Hands-on experience with Cadence tools...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert1')">More</span>
+                    <a href="https://drive.google.com/file/d/10sl-8iF89oT-Ex_cGS8PsLE696dLuup-/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-header" data-aos="fade-right">Core Skills</h2>
+        <div class="skills-grid" data-aos="fade-up">
+            <div class="skills-col">
+                <h3>Languages</h3>
+                <div class="skill-item">Verilog HDL</div>
+                <div class="skill-item">SystemVerilog</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">Assembly (8051)</div>
+            </div>
+            <div class="skills-col">
+                <h3>EDA Tools</h3>
+                <div class="skill-item">Cadence Suite</div>
+                <div class="skill-item">Synopsys TCAD suite</div>
+                <div class="skill-item">ModelSim</div>
+                <div class="skill-item">Quartus Prime</div>
+                <div class="skill-item">Xilinx Vivado</div>
+            </div>
+            <div class="skills-col">
+                <h3>Concepts</h3>
+                <div class="skill-item">ASIC Flow</div>
+                <div class="skill-item">FPGA Architecture</div>
+                <div class="skill-item">Semiconductor Physics</div>
+                <div class="skill-item">Analog Circuits</div>
+                <div class="skill-item">Digital Systems Design</div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="education">
+        <h2 class="section-header" data-aos="fade-left">Education</h2>
+        <div data-aos="fade-up">
+            <div class="edu-card" data-aos="fade-left">
+                <h4>B. Tech in ECE | VIT Vellore</h4>
+                <p>2022 - Present | <b>CGPA: 9.12/10</b></p>
+            </div>
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="200">
+                <h4>Higher Secondary (Grade XII) | CBSE</h4>
+                <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
+            </div>
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="400">
+                <h4>Secondary (Grade X) | CBSE</h4>
+                <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
             </div>
         </div>
     </section>
@@ -299,26 +361,23 @@
         AOS.init({ duration: 1000, once: false });
 
         const techData = {
-            fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven selection. Completed physical design using Innovus Tool.", report: "FPU_Report.pdf" },
-            ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links.", report: null },
-            fft: { title: "FFT on FPGA", body: "Implementation of a Radix-2 FFT using CORDIC. [Technical details from resume]...", report: null }, // Removed from dialog
-            processor: { title: "16-bit Processor", body: "Custom 16-bit processor featuring integrated ALU and control unit. [Technical details from resume]...", report: null }, // Removed from dialog
-            dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing.", report: null },
-            gps: { title: "Real-time GPS Tracking", body: "<b>Objective:</b> Continuous location update in Google Maps using API key and L80 GPS module interfaced with Raspberry Pi 4.", report: null }, // Removed from dialog
-            nit: { title: "Research Intern | NIT Trichy", body: "Researched hardware-efficient approximate multipliers. [Technical details from resume]...", report: "NIT_Report.pdf" },
-            kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture for massive matrix multiplications and image segmentation. [Technical details from resume]...", report: "Kineton_Report.pdf" },
-            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core. [Technical details from resume]...", report: null }, // Removed from dialog
-            pub: { title: "Journal Contribution Details", body: "Created a LUT-based higher order adder. Work conducted during internship at NIT Trichy.", report: null }
+            fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic. Physical design using Innovus Tool.", report: "FPU_Report.pdf" },
+            ris: { title: "RIS Phase Shifter", body: "Digital architecture for RIS to enhance SNR in wireless links.", report: null },
+            fft: { title: "FFT on FPGA", body: "Implemented Radix-2 FFT using CORDIC Algorithm. Optimized with a pipelined architecture. Multiplier-less computation.", report: null },
+            processor: { title: "16-bit Processor", body: "Processor with IR registers, multiplexer, ALU, and FSM control sequencing.", report: null },
+            dnn: { title: "DNN Convolution Operator", body: "MAC units for ML formats (bfloat16) for edge-device inferencing.", report: null },
+            gps: { title: "Real-time GPS Tracking", body: "Extracting latitude/longitude using Raspberry Pi 4 and L80 module displayed on Google Maps.", report: null },
+            nit: { title: "Research Intern | NIT Trichy", body: "LUT-based approximate multipliers using Artix-7 FPGA.", report: null },
+            kineton: { title: "VLSI Intern | Kineton", body: "Pipelined matrix multiplications and Otsu's image segmentation.", report: "Kineton_Report.pdf" },
+            maven: { title: "VLSI Intern | Maven Silicon", body: "SPI Master Core design with clock generation and shift register blocks.", report: null },
+            pub: { title: "Journal Contribution", body: "Created a LUT-based higher order adder (1st in paper). Proven more efficient than 2025 IEEE Transaction papers.", report: null },
+            cert1: { title: "ASIC Flow", body: "Routing, Placement, Floorplanning, CTS, STA using Cadence Genus and Innovus." }
         };
 
         function openModal(id) {
             const d = techData[id];
             let reportHtml = d.report ? `<a href="reports/${d.report}" target="_blank" class="report-btn">View Full Report (PDF)</a>` : "";
-            document.getElementById('modalBody').innerHTML = `
-                <h2 style="color:var(--primary); margin-bottom:1.5rem; font-size:2.2rem;">${d.title}</h2>
-                <div style="font-size:1.3rem; line-height:1.8;">${d.body}</div>
-                ${reportHtml}
-            `;
+            document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--primary); margin-bottom:1.5rem;">${d.title}</h2><div style="line-height:1.8;">${d.body}</div>${reportHtml}`;
             document.getElementById('projectModal').style.display = "block";
             document.body.style.overflow = "hidden";
         }
