@@ -46,7 +46,7 @@
         .nav-links a { text-decoration: none; color: #94a3b8; margin-left: 2rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* Hero Section with Restored Animations */
+        /* Hero Section */
         header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero-title { font-size: 5rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
@@ -64,13 +64,7 @@
         section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
         .section-header { font-size: 3.5rem; margin-bottom: 3.5rem; color: #fff; text-align: left; }
 
-        /* About Section */
-        .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-        .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
-        .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; }
-        .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg); }
-
-        /* Card Styles with Unified Hover Animation */
+        /* Card Styles */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
             background: var(--glass); border: 1px solid var(--glass-border); 
@@ -82,30 +76,28 @@
             border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
         .progress-badge { 
-            background: var(--secondary); color: white; font-size: 0.7rem; 
-            padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase;
+            position: absolute; top: 20px; right: 20px; background: var(--secondary); 
+            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800;
         }
 
         .card-actions { margin-top: 20px; display: flex; align-items: center; gap: 15px; }
-        .learn-more { 
-            color: var(--primary); font-weight: 700; cursor: pointer; 
-            text-decoration: underline; font-size: 0.9rem;
-        }
-        .github-link { color: #fff; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
-        .github-link:hover { color: var(--primary); }
+        .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
+        .card-git { color: #fff; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
+        .card-git:hover { color: var(--primary); }
 
         /* Skills Styles */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
         .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
-        .skill-item { 
-            background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; 
-            margin-bottom: 10px; border-left: 3px solid var(--primary); transition: 0.3s;
-        }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
 
-        /* Modal Dialog with Webpage Blur */
+        /* Get in Touch Restored Animation */
+        .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
+
+        /* Modal Dialog Blur Effect */
         .modal { 
             display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
             width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px);
@@ -122,8 +114,6 @@
             border-radius: 12px; font-weight: 700; transition: 0.3s;
         }
         .report-btn:hover { background: var(--secondary); transform: translateY(-3px); }
-
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -135,6 +125,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
@@ -152,7 +143,7 @@
         <div class="floating-icons">
             <i class="fas fa-microchip icon-3d" style="left: 20%; animation-delay: 0s;"></i>
             <i class="fas fa-memory icon-3d" style="left: 50%; animation-delay: 1.5s;"></i>
-            <i class="fas fa-code icon-3d" style="left: 80%; animation-delay: 3s;"></i>
+            <i class="fas fa-project-diagram icon-3d" style="left: 80%; animation-delay: 3s;"></i>
         </div>
     </header>
 
@@ -172,21 +163,17 @@
         <h2 class="section-header" data-aos="fade-up">Projects</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary);"></i>
-                </div>
+                <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>Runtime Hybrid FPU Chip</h3>
                 <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('fpu')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <i class="fas fa-satellite-dish" style="font-size: 2rem; color: var(--primary);"></i>
-                    <span class="progress-badge">In Progress</span>
-                </div>
+                <span class="progress-badge">In Progress</span>
+                <i class="fas fa-satellite-dish" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>RIS Phase Shifter Architecture</h3>
                 <p>Digital architecture for Reflective Intelligent Surface (RIS) to enhance wireless SNR.</p>
                 <div class="card-actions">
@@ -199,23 +186,21 @@
                 <p>16-point Radix-2 FFT implementation with twiddle factor generation via CORDIC.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('fft')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <i class="fas fa-project-diagram" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>16-bit Processor</h3>
-                <p>Custom processor with integrated ALU, Control Unit, and IR register decoding.</p>
+                <p>Custom 16-bit processor with integrated ALU, Control Unit, and IR register decoding.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('processor')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary);"></i>
-                    <span class="progress-badge">In Progress</span>
-                </div>
+                <span class="progress-badge">In Progress</span>
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
                 <h3>DNN Convolution Operator</h3>
                 <p>MAC units for ML formats (bfloat16) optimized for edge-device ASIC inferencing.</p>
                 <div class="card-actions">
@@ -228,8 +213,21 @@
                 <p>Continuous location update on Google Maps using Raspberry Pi 4 and L80 GPS module.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('gps')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git"><i class="fab fa-github"></i></a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2 class="section-header" data-aos="fade-up">Journal Publications</h2>
+        <div class="card" data-aos="fade-up" style="width: 100%;">
+            <span class="progress-badge">Under Review</span>
+            <h3 style="color: var(--primary);">Hardware-Efficient Approximate Multipliers Using LUT-Based Compressors and Adders</h3>
+            <p style="margin: 10px 0;"><b>Publication:</b> Springer Journals</p>
+            <p style="margin-bottom: 20px;"><b>Journal:</b> Arabian Journal for Science and Engineering</p>
+            <div class="card-actions">
+                <span class="learn-more" onclick="openModal('pub')">Learn More</span>
             </div>
         </div>
     </section>
@@ -239,25 +237,26 @@
         <div class="grid">
             <div class="card" data-aos="fade-up">
                 <h3>Research Intern | NIT Trichy</h3>
-                <p>Approximate multipliers using LUT6_2 and CARRY4 primitives on Artix-7 FPGA.</p>
+                <p>Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('nit')">Learn More</span>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
                 <h3>VLSI Intern | Kineton Technologies</h3>
-                <p>Pipelined architectures for matrix multiplications and Otsu's image segmentation.</p>
+                <p>Pipelined architecture for massive matrix multiplications and Otsu's thresholding implementation.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('kineton')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git" title="Matrix Multiplication Repo"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git" title="Image Segmentation Repo"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="card" data-aos="fade-up">
                 <h3>VLSI Intern | Maven Silicon</h3>
-                <p>Design and synthesis of an SPI Master Core with RTL verification in Verilog HDL.</p>
+                <p>Worked on the design and implementation of an SPI Master Core with RTL synthesis in Verilog HDL.</p>
                 <div class="card-actions">
                     <span class="learn-more" onclick="openModal('maven')">Learn More</span>
-                    <a href="https://github.com/sriharias-2204" class="github-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/sriharias-2204" class="card-git"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -320,15 +319,20 @@
         AOS.init({ duration: 1000, once: false });
 
         const techData = {
-            fpu: { title: "Runtime Hybrid FPU", body: "Designed hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic on a 90nm ASIC flow.", report: "FPU_Report.pdf" },
-            ris: { title: "RIS Phase Shifter", body: "ASIC-level digital architecture for Reflective Intelligent Surface (RIS) using Verilog and complex matrix multiplication.", report: null },
+            fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven selection. Completed physical design using Innovus Tool.", report: "FPU_Report.pdf" },
+            ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links.", report: null },
             fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation.", report: "FFT_Report.pdf" },
-            processor: { title: "16-bit Processor", body: "Custom control unit, ALU, and IR register decoding for opcode operations.", report: "Processor_Report.pdf" },
-            dnn: { title: "DNN Convolution Operator", body: "MAC units for ML formats (bfloat16) optimized for edge-device ASIC inferencing.", report: null },
-            gps: { title: "GPS Tracking", body: "Interfacing L80 GPS module with Raspberry Pi 4 to update real-time location on Google Maps using Flask and API keys.", report: "GPS_Report.pdf" },
-            nit: { title: "Research Intern | NIT Trichy", body: "Hardware-efficient approximate multipliers using LUT6_2 and CARRY4 primitives on Artix-7 FPGA.", report: "NIT_Report.pdf" },
-            kineton: { title: "VLSI Intern | Kineton", body: "Pipelined architecture for huge matrix multiplications and Otsu's thresholding algorithm for image segmentation.", report: "Kineton_Report.pdf" },
-            maven: { title: "VLSI Intern | Maven Silicon", body: "Implementation of an SPI Master Core in Verilog HDL including clock generation and shift register blocks.", report: "Maven_Report.pdf" }
+            processor: { title: "16-bit Processor", body: "Implemented a custom 16-bit processor featuring a control unit, ALU, and IR register decoding for opcode operation.", report: "Processor_Report.pdf" },
+            dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing.", report: null },
+            gps: { title: "GPS Tracking", body: "Worked on continuous location update in google maps using Raspberry Pi 4 and L80 GPS module.", report: "GPS_Report.pdf" },
+            nit: { title: "Research Intern | NIT Trichy", body: "Researched hardware-efficient approximate multipliers using LUT-based adders and compressors. Implemented on Artix-7 FPGA.", report: "NIT_Report.pdf" },
+            kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture for massive matrix multiplications and Otsu's thresholding algorithm for image segmentation.", report: "Kineton_Report.pdf" },
+            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in clock generation and RTL synthesis.", report: "Maven_Report.pdf" },
+            pub: { 
+                title: "Hardware-Efficient Approximate Multipliers", 
+                body: "<b>Contribution:</b><br>Created a LUT-based higher order adder used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from 2025 IEEE Transactions. Converted novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during NIT Trichy internship.", 
+                report: null 
+            }
         };
 
         function openModal(id) {
@@ -336,7 +340,7 @@
             let reportHtml = d.report ? `<a href="reports/${d.report}" target="_blank" class="report-btn">View Full Report (PDF)</a>` : "";
             document.getElementById('modalBody').innerHTML = `
                 <h2 style="color:var(--primary); margin-bottom:1.5rem; font-size:2.2rem;">${d.title}</h2>
-                <p style="font-size:1.3rem; line-height:1.8;">${d.body}</p>
+                <div style="font-size:1.3rem; line-height:1.8;">${d.body}</div>
                 ${reportHtml}
             `;
             document.getElementById('projectModal').style.display = "block";
