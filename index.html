@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Hari AS | VLSI & ASIC Portfolio</title>
+    <title>Sri Hari AS | VLSI Portfolio</title>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -13,7 +13,7 @@
         :root {
             --primary: #6366f1;
             --secondary: #a855f7;
-            --dark: #0f172a;
+            --dark: #050816;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
@@ -21,151 +21,74 @@
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: #050816; 
+            background: var(--dark); 
             color: #e2e8f0; 
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Background Blur Animations */
+        /* Animated Background */
         .bg-blur {
             position: fixed;
-            width: 600px;
-            height: 600px;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            filter: blur(140px);
-            opacity: 0.12;
-            z-index: -1;
+            filter: blur(140px); opacity: 0.12; z-index: -1;
             animation: move 25s infinite alternate ease-in-out;
         }
-        @keyframes move {
-            from { transform: translate(-20%, -20%); }
-            to { transform: translate(120%, 90%); }
-        }
+        @keyframes move { from { transform: translate(-20%, -20%); } to { transform: translate(120%, 90%); } }
 
-        /* Glassmorphism Navbar */
         nav { 
-            background: rgba(15, 23, 42, 0.85); 
-            backdrop-filter: blur(15px); 
-            padding: 1.2rem 8%; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            display: flex; 
-            justify-content: space-between; 
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(15px); 
+            padding: 1.2rem 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border);
         }
-        .logo { font-weight: 800; color: #fff; letter-spacing: 1px; }
         .nav-links a { text-decoration: none; color: #94a3b8; margin-left: 2rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* Hero Section */
-        header { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-        }
-        .hero-title { 
-            font-size: 5.5rem; 
-            font-weight: 800; 
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-contact {
-            margin-top: 30px;
-            display: flex;
-            gap: 25px;
-        }
-        .hero-contact a {
-            color: #fff;
-            font-size: 1.8rem;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
-        }
-        .hero-contact a:hover {
-            color: var(--primary);
-            transform: translateY(-8px) scale(1.2);
-            filter: drop-shadow(0 0 15px var(--primary));
-        }
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero-title { font-size: 5rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero-contact { margin-top: 30px; display: flex; gap: 25px; }
+        .hero-contact a { color: #fff; font-size: 1.8rem; transition: 0.4s; cursor: pointer; }
+        .hero-contact a:hover { color: var(--primary); transform: translateY(-8px); filter: drop-shadow(0 0 15px var(--primary)); }
 
-        /* 3D Icons */
-        .floating-icons { position: relative; height: 80px; width: 100%; margin-top: 2rem; }
-        .icon-3d { 
-            font-size: 3rem; 
-            color: var(--primary); 
-            position: absolute; 
-            animation: float 4s infinite ease-in-out; 
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-        }
-        @keyframes float { 
-            0%, 100% { transform: translateY(0) rotate(0deg); } 
-            50% { transform: translateY(-20px) rotate(10deg); } 
-        }
+        section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
+        .section-header { font-size: 3rem; margin-bottom: 3rem; color: #fff; text-align: left; }
 
         /* About Section */
-        section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
         .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-        .about-content { flex: 1.2; }
-        .about-img-container { flex: 0.8; display: flex; justify-content: center; }
-        .about-img-container img { 
-            width: 100%;
-            max-width: 380px;
-            border-radius: 40px; 
-            border: 1px solid var(--glass-border);
-            transform: perspective(1000px) rotateY(-12deg);
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
-        }
-        .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
+        .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
+        .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; }
+        .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg); }
 
-        /* Unified Card Style for Projects & Experience */
+        /* Unified Grid Style */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
-            background: var(--glass); 
-            border: 1px solid var(--glass-border); 
-            padding: 2.8rem; 
-            border-radius: 28px; 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
+            background: var(--glass); border: 1px solid var(--glass-border); 
+            padding: 2.5rem; border-radius: 28px; transition: 0.4s; cursor: pointer;
         }
-        .card:hover { 
-            background: rgba(255,255,255,0.07); 
-            transform: scale(1.04) translateY(-12px); 
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .card h3 { margin-bottom: 1.2rem; color: #fff; font-size: 1.4rem; }
-        .card p { color: #94a3b8; line-height: 1.6; }
-        .tag-container { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { font-size: 0.75rem; color: var(--primary); font-weight: 800; border: 1px solid var(--primary); padding: 4px 12px; border-radius: 8px; text-transform: uppercase; }
+        .card:hover { background: rgba(255,255,255,0.07); transform: translateY(-12px); border-color: var(--primary); }
 
-        /* Modal Transitions */
+        /* Education Timeline Style */
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2rem; margin-bottom: 2rem; border-radius: 0 20px 20px 0; }
+        .edu-card h4 { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
+        .edu-card p { color: #94a3b8; }
+
+        /* Skills Layout */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .skill-box { background: var(--glass); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--glass-border); transition: 0.3s; }
+        .skill-box:hover { border-color: var(--secondary); background: rgba(168, 85, 247, 0.05); }
+        .skill-list { list-style: none; margin-top: 10px; font-size: 0.9rem; color: #cbd5e1; }
+
+        /* Contact Section */
+        .contact-box { text-align: center; background: var(--glass); padding: 4rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-box h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .contact-link { display: block; font-size: 1.5rem; color: var(--primary); text-decoration: none; margin: 10px 0; transition: 0.3s; cursor: pointer; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; }
+
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(25px); }
-        .modal-content { 
-            background: #0f172a; 
-            margin: 5% auto; 
-            padding: 60px; 
-            width: 85%; 
-            max-width: 850px; 
-            border-radius: 40px; 
-            border: 1px solid var(--primary);
-            animation: zoomIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-        }
+        .modal-content { background: #0f172a; margin: 5% auto; padding: 60px; width: 85%; max-width: 850px; border-radius: 40px; border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative; }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        .close-btn { position: absolute; top: 25px; right: 35px; color: #fff; font-size: 2.5rem; cursor: pointer; }
-
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -177,40 +100,27 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <header id="hero">
         <h1 class="hero-title" data-aos="zoom-out">SRI HARI AS</h1>
-        <p style="color: #94a3b8; font-size: 1.6rem; letter-spacing: 3px; font-weight: 300;" data-aos="fade-up" data-aos-delay="200">VLSI SYSTEM DESIGNER</p>
-        
-        <div class="hero-contact" data-aos="fade-up" data-aos-delay="400">
-            <a href="https://github.com/sriharias-2204" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/srihari-a-s-914126249/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin">     </i></a>
-            <a href="mailto:sriharias2204@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-
-        <div class="floating-icons">
-            <i class="fas fa-microchip icon-3d" style="left: 20%; animation-delay: 0s;"></i>
-            <i class="fas fa-memory icon-3d" style="left: 50%; animation-delay: 1.5s;"></i>
-            <i class="fas fa-network-wired icon-3d" style="left: 80%; animation-delay: 3s;"></i>
+        <p style="color: #94a3b8; font-size: 1.6rem; letter-spacing: 3px;" data-aos="fade-up">VLSI SYSTEM DESIGNER</p>
+        <div class="hero-contact" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://github.com/sriharias-2204" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/srihari-a-s-914126249/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:sriharias2204@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </header>
 
     <section id="about">
         <div class="about-wrapper">
             <div class="about-content" data-aos="fade-right">
-                <h2 style="font-size: 3.5rem; margin-bottom: 2rem; color: #fff;">About Me</h2>
-                <p style="font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify;">
-                    A passionate and driven Electronics and Communication Engineering undergraduate at <b>VIT Vellore</b>, with a strong focus on <b>VLSI system design</b>, digital hardware architectures, and <b>ASIC implementation</b>. My expertise lies in RTL design, approximate and mixed-precision arithmetic, and hardware acceleration for signal processing and AI workloads, supported by hands-on experience in FPGA prototyping and full ASIC flows up to <b>GDS-II</b>. 
-                </p>
-                <p style="font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; margin-top: 15px; text-align: justify;">
-                    I am deeply motivated by research and innovation in energy-efficient computing and silicon-level optimization, and I constantly strive to translate complex algorithms into high-performance, real-world hardware solutions.
-                </p>
-                <div style="margin-top: 2.5rem; font-size: 1.2rem; color: var(--primary); font-weight: 700;">
-                    CGPA: 9.12/10 | Vellore Institute of Technology
-                </div>
+                <h2 class="section-header">About Me</h2>
+                <p>A passionate and driven Electronics and Communication Engineering undergraduate at <b>VIT Vellore</b>, with a strong focus on <b>VLSI system design</b>, digital hardware architectures, and <b>ASIC implementation</b>. My expertise lies in RTL design, approximate and mixed-precision arithmetic, and hardware acceleration for signal processing and AI workloads, supported by hands-on experience in FPGA prototyping and full ASIC flows up to <b>GDS-II</b>[cite: 5]. I am deeply motivated by research and innovation in energy-efficient computing and silicon-level optimization, and I constantly strive to translate complex algorithms into high-performance, real-world hardware solutions[cite: 6, 7].</p>
             </div>
             <div class="about-img-container" data-aos="zoom-in">
                 <img src="Formal Picture.jpg" alt="Sri Hari AS">
@@ -219,110 +129,105 @@
     </section>
 
     <section id="projects">
-        <h2 style="font-size: 3.5rem; margin-bottom: 4rem; color: #fff;" data-aos="fade-up">Projects</h2>
+        <h2 class="section-header" data-aos="fade-up">Projects</h2>
         <div class="grid">
             <div class="card" data-aos="fade-up" onclick="openModal('fpu')">
-                <i class="fas fa-microchip" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
                 <h3>Runtime Hybrid FPU Chip</h3>
-                <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven selection.</p>
-                <div class="tag-container">
-                    <span class="tag">90nm ASIC</span><span class="tag">Innovus</span><span class="tag">Genus</span>
-                </div>
+                <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic[cite: 36, 37].</p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('ris')">
-                <i class="fas fa-satellite-dish" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
                 <h3>RIS Phase Shifter</h3>
-                <p>Digital architecture for Reconfigurable Intelligent Surfaces to enhance SNR in next-gen wireless links.</p>
-                <div class="tag-container">
-                    <span class="tag">Verilog</span><span class="tag">Matrix Mult</span><span class="tag">45nm</span>
-                </div>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('fft')">
-                <i class="fas fa-wave-square" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
-                <h3>CORDIC FFT on FPGA</h3>
-                <p>16-point Radix-2 FFT on Altera Cyclone IV using CORDIC algorithm for twiddle factor generation.</p>
-                <div class="tag-container">
-                    <span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">ModelSim</span>
-                </div>
+                <p>ASIC-level digital architecture for Reflective Intelligent Surface (RIS) to enhance SNR[cite: 40, 41].</p>
             </div>
         </div>
     </section>
 
-    <section id="experience">
-        <h2 style="font-size: 3.5rem; margin-bottom: 4rem; color: #fff;" data-aos="fade-up">Experience</h2>
-        <div class="grid">
-            <div class="card" data-aos="fade-left" onclick="openModal('nit')">
-                <i class="fas fa-university" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
-                <h3>Research Intern | NIT Trichy</h3>
-                <p>Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.</p>
-                <div class="tag-container">
-                    <span class="tag">LUT6_2</span><span class="tag">Artix-7</span><span class="tag">Research</span>
-                </div>
+    <section id="skills">
+        <h2 class="section-header" data-aos="fade-right">Core Skills</h2>
+        <div class="skills-container" data-aos="fade-up">
+            <div class="skill-box">
+                <h4><i class="fas fa-code"></i> Languages</h4>
+                <ul class="skill-list">
+                    <li>Verilog HDL & SystemVerilog </li>
+                    <li>Python (PyTorch) </li>
+                    <li>C++, Assembly (8051) </li>
+                </ul>
             </div>
-            <div class="card" data-aos="fade-left" data-aos-delay="200" onclick="openModal('kineton')">
-                <i class="fas fa-industry" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
-                <h3>VLSI Intern | Kineton Tech</h3>
-                <p>Developed pipelined architecture for matrix multiplications and Otsu’s image segmentation algorithm.</p>
-                <div class="tag-container">
-                    <span class="tag">Pipelining</span><span class="tag">Image Proc</span>
-                </div>
+            <div class="skill-box">
+                <h4><i class="fas fa-tools"></i> EDA Tools</h4>
+                <ul class="skill-list">
+                    <li>Cadence (Genus, Innovus, Virtuoso) </li>
+                    <li>Synopsys TCAD Suite </li>
+                    <li>Xilinx Vivado, Quartus Prime </li>
+                </ul>
             </div>
+            <div class="skill-box">
+                <h4><i class="fas fa-microchip"></i> Concepts</h4>
+                <ul class="skill-list">
+                    <li>RTL to GDSII Flow </li>
+                    <li>FPGA Architecture </li>
+                    <li>Digital Signal Processing </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section id="education">
+        <h2 class="section-header" data-aos="fade-left">Education</h2>
+        <div data-aos="fade-up">
+            <div class="edu-card">
+                <h4>B. Tech in ECE | VIT Vellore</h4>
+                <p>2022 - Present | <b>CGPA: 9.12/10</b> </p>
+            </div>
+            <div class="edu-card">
+                <h4>Higher Secondary | CBSE</h4>
+                <p>2022 | National Model Senior Secondary School | <b>93.60%</b> </p>
+            </div>
+            <div class="edu-card">
+                <h4>Secondary | CBSE</h4>
+                <p>2020 | KMC Public Senior Secondary School | <b>92%</b> </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box" data-aos="zoom-in">
+            <h2 class="hero-title">Get in Touch</h2>
+            <p style="margin-bottom: 20px;">Let's discuss VLSI architecture and innovation.</p>
+            <a href="mailto:sriharias2204@gmail.com" class="contact-link">sriharias2204@gmail.com [cite: 3]</a>
+            <a href="tel:+918870555334" class="contact-link">+91 8870555334 [cite: 2]</a>
         </div>
     </section>
 
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <span style="color:#fff; float:right; cursor:pointer; font-size:2rem;" onclick="closeModal()">&times;</span>
             <div id="modalBody"></div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Sri Hari AS | VIT Vellore. Built with Passion for Silicon.</p>
+        <p>&copy; 2026 Sri Hari AS | VIT Vellore Campus</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: false });
 
-        const technicalData = {
-            fpu: {
-                title: "Runtime Hybrid Floating-Point Unit (FPU) [cite: 36]",
-                body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32 and BF16 arithmetic with operand-driven precision selection[cite: 37]. Implemented certainty/uncertainty detectors and an FSM for dynamic path switching, achieving lower power and area on a 90 nm ASIC flow using Cadence Genus and Conformal LEC[cite: 38]. Also completed Physical Design using Innovus[cite: 39]."
-            },
-            ris: {
-                title: "RIS Phase Shifter Architecture [cite: 40]",
-                body: "Designed a complete ASIC-level digital architecture for a Reflective Intelligent Surface (RIS) phase shifter[cite: 41]. Implemented required computation modules in Verilog—including complex fixed-point matrix multiplication, transpose, and Hamilton operator to process complex-valued RIS signals[cite: 42]."
-            },
-            fft: {
-                title: "FFT Implementation on FPGA [cite: 22]",
-                body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC (Coordinate Rotation Digital Computer) algorithm for twiddle factor matrix generation in Verilog HDL[cite: 23]."
-            },
-            nit: {
-                title: "Research Internship | NIT Trichy [cite: 16]",
-                body: "Researched Hardware-Efficient Approximate Multipliers using LUT-based approximate Adders and Compressors[cite: 18]. Optimized area and power consumption of latest multipliers and implemented on Artix-7 FPGA using LUT-level coding (LUT6_2 and CARRY4)[cite: 19, 20]."
-            },
-            kineton: {
-                title: "VLSI Internship | Kineton Technologies [cite: 14]",
-                body: "Worked on pipelined architecture and Verilog coding of huge matrix multiplications and implementation of Otsu's thresholding algorithm for image segmentation in Verilog[cite: 15]."
-            }
+        const techData = {
+            fpu: { title: "Runtime Hybrid FPU", body: "Designed hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic. Implemented an FSM for dynamic precision selection on a 90nm ASIC flow[cite: 36, 37, 38]." },
+            ris: { title: "RIS Phase Shifter", body: "Digital architecture for Reflective Intelligent Surface (RIS). Implemented computation modules including matrix multiplication and Hamilton operators to enhance SNR[cite: 40, 41, 42]." }
         };
 
         function openModal(id) {
-            const data = technicalData[id];
-            document.getElementById('modalBody').innerHTML = `
-                <h2 style="color:var(--primary); margin-bottom:2rem; font-size:2.5rem;">${data.title}</h2>
-                <p style="font-size:1.3rem; line-height:1.8; color:#cbd5e1;">${data.body}</p>
-            `;
+            const d = techData[id];
+            document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--primary); margin-bottom:1.5rem;">${d.title}</h2><p style="font-size:1.2rem; line-height:1.7;">${d.body}</p>`;
             document.getElementById('projectModal').style.display = "block";
             document.body.style.overflow = "hidden";
         }
-
-        function closeModal() {
-            document.getElementById('projectModal').style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
+        function closeModal() { document.getElementById('projectModal').style.display = "none"; document.body.style.overflow = "auto"; }
         window.onclick = (e) => { if(e.target == document.getElementById('projectModal')) closeModal(); }
     </script>
 </body>
