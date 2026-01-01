@@ -75,7 +75,7 @@
         }
         .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
 
-        /* Card Styles */
+        /* Unified Card Styles with Unified Hover Animation */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .card { 
             background: var(--glass); border: 1px solid var(--glass-border); 
@@ -89,19 +89,30 @@
         
         .progress-badge { 
             position: absolute; top: 20px; right: 20px; background: var(--secondary); 
-            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800;
+            color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase;
         }
 
-        .card-actions { margin-top: 20px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .card-actions { margin-top: 20px; display: flex; align-items: center; gap: 15px; }
         .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.9rem; }
         .card-git { color: #fff; font-size: 1.3rem; cursor: pointer; transition: 0.3s; text-decoration: none; }
         .card-git:hover { color: var(--primary); transform: translateY(-3px); }
 
-        /* Skills Styles */
+        /* Skills Styles (Reference Style) */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
         .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
         .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); }
+
+        /* Restored Education Layout */
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
+        .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
+        .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+        .edu-card p { color: #94a3b8; font-size: 1.1rem; }
+
+        /* Restored Get in Touch Styles */
+        .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
 
         /* Modal Dialog Blur Effect */
         .modal { 
@@ -302,15 +313,15 @@
     <section id="education">
         <h2 class="section-header" data-aos="fade-left">Education</h2>
         <div data-aos="fade-up">
-            <div class="edu-card">
+            <div class="edu-card" data-aos="fade-left">
                 <h4>B. Tech in ECE | VIT Vellore</h4>
                 <p>2022 - Present | <b>CGPA: 9.12/10</b></p>
             </div>
-            <div class="edu-card">
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="200">
                 <h4>Higher Secondary (Grade XII) | CBSE</h4>
                 <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
             </div>
-            <div class="edu-card">
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="400">
                 <h4>Secondary (Grade X) | CBSE</h4>
                 <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
             </div>
@@ -341,18 +352,18 @@
         AOS.init({ duration: 1000, once: false });
 
         const techData = {
-            fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven selection. Achieved lower power and area on a 90 nm ASIC flow using Cadence Genus and Conformal LEC. Completed physical design using Innovus.", report: "FPU_Report.pdf" },
-            ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links. Implemented computation modules including matrix multiplication and Hamilton operators.", report: null },
-            fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation in Verilog HDL.", report: "FFT_Report.pdf" },
-            processor: { title: "16-bit Processor", body: "Implemented a custom 16-bit processor featuring a control unit, ALU, and IR register decoding for opcode operation. Interconnected units using various buses.", report: "Processor_Report.pdf" },
-            dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing. Currently optimizing DenseNet121 model.", report: null },
-            gps: { title: "Real-time GPS Tracking", body: "Worked on continuous location update in google maps using API key. Interfaced L80 GPS module with Raspberry Pi 4 using Python and HTML.", report: "GPS_Report.pdf" },
-            nit: { title: "Research Intern | NIT Trichy", body: "Researched hardware-efficient approximate multipliers using LUT-based adders and compressors. Optimized area and power consumption of latest multipliers. Implemented on Artix-7 FPGA using LUT-level coding (LUT6_2 and CARRY4).", report: "NIT_Report.pdf" },
-            kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture and Verilog coding for massive matrix multiplications. Implemented Otsu's thresholding algorithm for image segmentation in Verilog.", report: "Kineton_Report.pdf" },
-            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Developed core architecture, clock generation, and shift register blocks.", report: "Maven_Report.pdf" },
+            fpu: { title: "Runtime Hybrid FPU", body: "Designed a hardware-autonomous FPU supporting exact FP32, approximate FP32, and BF16 arithmetic with operand-driven precision selection. Completed physical design using Innovus Tool.", report: "FPU_Report.pdf" },
+            ris: { title: "RIS Phase Shifter", body: "Designed a digital architecture for a Reflective Intelligent Surface (RIS) phase shifter to enhance SNR in wireless links.", report: null },
+            fft: { title: "FFT on FPGA", body: "Implemented 16-point Radix-2 FFT on Altera Cycle IV E board using CORDIC algorithm for twiddle factor generation.", report: "FFT_Report.pdf" },
+            processor: { title: "16-bit Processor", body: "Implemented a custom 16-bit processor featuring a control unit, ALU, and IR register decoding for opcode operation.", report: "Processor_Report.pdf" },
+            dnn: { title: "DNN Convolution Operator", body: "Developed bfloat16 MAC units for ML data formats, optimized for edge-device ASIC inferencing.", report: null },
+            gps: { title: "Real-time GPS Tracking", body: "Worked on continuous location update in google maps using Raspberry Pi 4 and L80 GPS module.", report: "GPS_Report.pdf" },
+            nit: { title: "Research Intern | NIT Trichy", body: "Researched hardware-efficient approximate multipliers using LUT-based adders and compressors. Implemented on Artix-7 FPGA.", report: "NIT_Report.pdf" },
+            kineton: { title: "VLSI Intern | Kineton", body: "Developed pipelined architecture for massive matrix multiplications and Otsu's thresholding implementation.", report: "Kineton_Report.pdf" },
+            maven: { title: "VLSI Intern | Maven Silicon", body: "Designed and implemented an SPI Master Core in Verilog HDL. Gained experience in RTL synthesis.", report: "Maven_Report.pdf" },
             pub: { 
                 title: "Journal Contribution Details", 
-                body: "<b>My contribution:</b><br>Created a LUT-based higher order adder (1st in the paper) used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from current 2025 IEEE Transactions papers. Converted two novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during internship at NIT Trichy.", 
+                body: "Created a LUT-based higher order adder (1st in the paper) used to create higher order multipliers from lower order ones. Proven to be more efficient and faster than adders from current 2025 IEEE Transactions papers. Converted two novel compressor-based multipliers to LUT coding style and authored the full research paper. Work conducted during internship at NIT Trichy.", 
                 report: null 
             }
         };
