@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -466,7 +466,448 @@
     </script>
 </body>
 </html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Hari A S | VLSI & ASIC Portfolio</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #050816;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--dark); color: #e2e8f0; overflow-x: hidden; scroll-behavior: smooth;
+        }
+
+        /* Animated Background Blur */
+        .bg-blur {
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(140px); opacity: 0.12; z-index: -1;
+            animation: move 25s infinite alternate ease-in-out;
+        }
+        @keyframes move { from { transform: translate(-20%, -20%); } to { transform: translate(120%, 90%); } }
+
+        /* Navbar */
+        nav { 
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(15px); 
+            padding: 1.2rem 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            display: flex; justify-content: space-between; border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-links a { text-decoration: none; color: #94a3b8; margin-left: 2rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+        /* Hero Section with Restored Icons */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero-title { font-size: 5rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-contact { margin-top: 30px; display: flex; gap: 25px; }
+        .hero-contact a { color: #fff; font-size: 1.8rem; transition: 0.4s; cursor: pointer; }
+        .hero-contact a:hover { color: var(--primary); transform: translateY(-8px); filter: drop-shadow(0 0 15px var(--primary)); }
+
+        .floating-icons { position: relative; height: 80px; width: 100%; margin-top: 2rem; }
+        .icon-3d { font-size: 3rem; color: var(--primary); position: absolute; animation: float 4s infinite ease-in-out; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
+
+        section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
+        .section-header { font-size: 3.5rem; margin-bottom: 3.5rem; color: #fff; text-align: left; }
+
+        /* Side-by-Side About Section */
+        .about-wrapper { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-content { flex: 1.2; font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; text-align: justify; }
+        .about-img-container { flex: 0.8; display: flex; justify-content: center; }
+        .about-img-container img { width: 100%; max-width: 380px; border-radius: 40px; border: 1px solid var(--glass-border); transform: perspective(1000px) rotateY(-12deg); transition: 0.6s; box-shadow: 20px 20px 60px rgba(0,0,0,0.5); }
+        .about-img-container:hover img { transform: perspective(1000px) rotateY(0deg) scale(1.02); }
+
+        /* Card Styles */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2.8rem; border-radius: 28px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .card:hover { background: rgba(255,255,255,0.07); transform: scale(1.04) translateY(-12px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card h3 { color: #fff; margin-bottom: 1rem; font-size: 1.4rem; }
+        
+        .progress-badge { position: absolute; top: 20px; right: 20px; background: var(--secondary); color: white; font-size: 0.7rem; padding: 4px 10px; border-radius: 12px; font-weight: 800; text-transform: uppercase; }
+
+        .card-actions { margin-top: auto; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .left-actions { display: flex; align-items: center; gap: 12px; }
+        .learn-more { color: var(--primary); font-weight: 700; cursor: pointer; text-decoration: underline; font-size: 0.85rem; }
+        .card-git { color: #fff; font-size: 1.2rem; cursor: pointer; transition: 0.3s; text-decoration: none; }
+        .card-git:hover { color: var(--primary); transform: translateY(-2px); }
+        .card-report { color: var(--primary); font-weight: 700; text-decoration: none; font-size: 0.85rem; transition: 0.3s; cursor: pointer; }
+        .card-report:hover { color: #fff; text-shadow: 0 0 10px var(--primary); }
+
+        .cert-btn { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .cert-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3); }
+
+        /* Skills, Education, Contact */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .skills-col h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; position: relative; }
+        .skills-col h3::after { content: ''; display: block; width: 100%; height: 2px; background: var(--primary); margin-top: 5px; }
+        .skill-item { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 10px; margin-bottom: 10px; border-left: 3px solid var(--primary); transition: 0.3s; }
+
+        .edu-card { background: var(--glass); border-left: 4px solid var(--primary); padding: 2.5rem; margin-bottom: 2rem; border-radius: 0 25px 25px 0; transition: 0.3s; }
+        .edu-card:hover { background: rgba(255,255,255,0.05); transform: translateX(10px); }
+        .edu-card h4 { font-size: 1.6rem; color: #fff; margin-bottom: 0.5rem; }
+
+        .contact-box { text-align: center; background: var(--glass); padding: 5rem; border-radius: 40px; border: 1px solid var(--primary); }
+        .contact-link { display: block; font-size: 1.8rem; color: var(--primary); text-decoration: none; margin: 15px 0; transition: 0.3s; cursor: pointer; font-weight: 600; }
+        .contact-link:hover { letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px var(--primary); }
+
+        /* Modal Blur Effect */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px); }
+        .modal-content { background: #0f172a; margin: 5% auto; padding: 60px; width: 85%; max-width: 850px; border-radius: 40px; border: 1px solid var(--primary); animation: zoomIn 0.5s; position: relative; max-height: 85vh; overflow-y: auto; }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        .report-btn { display: inline-block; margin-top: 30px; padding: 12px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; transition: 0.3s; }
+
+        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass-border); color: #64748b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blur"></div>
+
+    <nav>
+        <div class="logo">SRI HARI A S</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#recommendations">Recommendations</a>
+            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#experience">Experiences</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <h1 class="hero-title" data-aos="zoom-out">SRI HARI A S</h1>
+        <p style="color: #94a3b8; font-size: 1.6rem; letter-spacing: 3px;" data-aos="fade-up">Microelectronics & VLSI Research Student</p>
+        <div class="hero-contact" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://github.com/sriharias-2204" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/srihari-a-s-914126249/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:sriharias2204@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="floating-icons">
+            <i class="fas fa-microchip icon-3d" style="left: 20%; animation-delay: 0s;"></i>
+            <i class="fas fa-memory icon-3d" style="left: 50%; animation-delay: 1.5s;"></i>
+            <i class="fas fa-code icon-3d" style="left: 80%; animation-delay: 3s;"></i>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="about-wrapper">
+            <div class="about-content" data-aos="fade-right">
+                <h2 class="section-header">About Me</h2>
+                <p>I am a final-year Electronics and Communication Engineering student at <b>VIT Vellore</b> with a CGPA of <b>9.15/10</b>, specializing in hardware acceleration and advanced VLSI design flows. Driven by the philosophy that domain-specific architectures are essential for the future of computing, my work focuses on bridging the gap between high-level architectural logic and the physical constraints of nanometer-scale silicon. I have hands-on experience in FPGA Prototyping, full ASIC RTL-to-GDSII flow using Cadence and Synopsys tools, having developed energy-efficient accelerators for Edge AI inferencing and 6G RIS beamforming. With research manuscripts currently under review for international journals, I am now seeking a research-oriented Master’s program to further my expertise in Microelectronics and lead the development of next-generation AI chips.</p>
+            </div>
+            <div class="about-img-container" data-aos="zoom-in">
+                <img src="Formal Picture.jpg" alt="Sri Hari A S">
+            </div>
+        </div>
+    </section>
+
+    <section id="recommendations">
+        <h2 class="section-header" data-aos="fade-up">Recommendation Letters</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-file-pdf" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Recommendation Letter 1</h3>
+                <p>Formal endorsement regarding research contributions and academic excellence.</p>
+                <div class="card-actions">
+                    <a href="#" target="_blank" class="cert-btn"><i class="fas fa-external-link-alt"></i> View LOR</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-file-pdf" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Recommendation Letter 2</h3>
+                <p>Validation of technical proficiency in VLSI systems and hardware design.</p>
+                <div class="card-actions">
+                    <a href="#" target="_blank" class="cert-btn"><i class="fas fa-external-link-alt"></i> View LOR</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-file-pdf" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Recommendation Letter 3</h3>
+                <p>Assessment of problem-solving skills and innovative approach to digital logic.</p>
+                <div class="card-actions">
+                    <a href="#" target="_blank" class="cert-btn"><i class="fas fa-external-link-alt"></i> View LOR</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-file-pdf" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Recommendation Letter 4</h3>
+                <p>Endorsement from industry/research supervisors during internships.</p>
+                <div class="card-actions">
+                    <a href="#" target="_blank" class="cert-btn"><i class="fas fa-external-link-alt"></i> View LOR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-header" data-aos="fade-up">Projects</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-bolt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Runtime Hybrid FPU Chip</h3>
+                <p>Hardware-autonomous FPU supporting exact FP32, approximate FP32 and BF16 arithmetic.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('fpu')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/Runtime-Predictive-Hybrid-Floating-Point-Unit" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1PZ-ED0tYL_QrfLg16AP_WvV5zKyOIinQ/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <span class="progress-badge">In Progress</span>
+                <i class="fas fa-satellite-dish" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Beamforming Accelerator for RIS</h3>
+                <p>Digital architecture for Reconfigurable Intelligent Surface (RIS) to enhance wireless SNR.</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('ris')">Learn More</span>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-wave-square" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>CORDIC FFT on FPGA</h3>
+                <p>16-point Radix-2 FFT implementation with twiddle factor generation via CORDIC.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('fft')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/CORDIC-based-16-point-FFT-in-Verilog" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1D5qtJwuv5uQI9fBJQH_m-kcD7dOBvQTe/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-project-diagram" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>16-bit Processor</h3>
+                <p>Custom 16-bit processor with integrated ALU, Control Unit and IR register decoding.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('processor')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/16-bit-Processor" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <a href="https://drive.google.com/file/d/19fKMwxtTMYC1wAUcfQaV9ELwpqSA2n--/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <span class="progress-badge">In Progress</span>
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Reconfigurable DNN Convolution Operator</h3>
+                <p>MAC units for ML formats (bfloat16) optimized for edge-device ASIC inferencing.</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('dnn')">Learn More</span>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Real-time GPS Location Tracking</h3>
+                <p>Continuous location update on Google Maps using Raspberry Pi 4 and L80 GPS module.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('gps')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/Real-Time-GPS-Tracking-System-using-Raspberry-Pi-4" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1LFnadQmHbVffCVwG6Tm5AfA6S1B2jgVX/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2 class="section-header" data-aos="fade-up">Journal Publications</h2>
+        <div class="card" data-aos="fade-up" style="width: 100%;">
+            <span class="progress-badge">Under Review</span>
+            <h3 style="color: var(--primary);">Hardware-Efficient Approximate Multipliers Using LUT-Based Compressors and Adders</h3>
+            <p><b>Publication:</b> Springer Journals | Arabian Journal for Science and Engineering</p>
+            <div class="card-actions">
+                <span class="learn-more" onclick="openModal('pub')">Learn More</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-header" data-aos="fade-up">Research & Industry Experiences</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-university" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>Research Intern | NIT Trichy</h3>
+                <p>Optimizing hardware-efficient approximate multipliers and compressors using LUT-level FPGA coding.</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('nit')">Learn More</span>
+                    <a href="https://drive.google.com/file/d/1TXCmo75yiy8_w0tcF6PWPr5rnehTcQbb/view?usp=sharing" target="_blank" class="card-report">Certificate</a>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-industry" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>VLSI Intern | Kineton Technologies</h3>
+                <p>Developed single-precision arithmetic architectures and also Otsu's thresholding implementation on FPGA.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('kineton')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/FPGA-Optimized-Otsu-Thresholding-Algorithm" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/sriharias-2204/32-bit-Floating-Point-Arithmetic" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <a href="https://drive.google.com/file/d/12n-7oxS1ABZ2nUPHRB1fxxYyYhdmnfr5/view?usp=sharing" target="_blank" class="card-report">Certificate</a>
+                        <a href="https://drive.google.com/file/d/1TRXil2ETyO4I8N_fhaROWjjpmp0fs1zn/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3>VLSI Intern | Maven Silicon</h3>
+                <p>Design and synthesis of an SPI Master Core with RTL verification in Verilog HDL.</p>
+                <div class="card-actions">
+                    <div class="left-actions">
+                        <span class="learn-more" onclick="openModal('maven')">Learn More</span>
+                        <a href="https://github.com/sriharias-2204/SPI-Master-Core-with-Wishbone-Interface" target="_blank" class="card-git"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <a href="https://drive.google.com/file/d/1E3EKkJmVTskHdlhB5WQ0GQeh-XGBhE-8/view?usp=sharing" target="_blank" class="card-report">Certificate</a>
+                        <a href="https://drive.google.com/file/d/1v7JY96W6M6bSN7-e9e_vNPK5Dkq-7wHC/view?usp=sharing" target="_blank" class="card-report">Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-header" data-aos="fade-up">Certifications & Professional Training</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <h3>ASIC Flow (by VIT Vellore)</h3>
+                <p>Routing, Placement, Floorplanning, CTS, STA. Hands-on experience using Cadence tools (Nclaunch, Genus, LEC, Innovus)...</p>
+                <div class="card-actions">
+                    <span class="learn-more" onclick="openModal('cert1')">More</span>
+                    <a href="https://drive.google.com/file/d/10sl-8iF89oT-Ex_cGS8PsLE696dLuup-/view?usp=sharing" target="_blank" class="cert-btn">Certificate</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-header" data-aos="fade-right">Core Skills</h2>
+        <div class="skills-grid" data-aos="fade-up">
+            <div class="skills-col">
+                <h3>Languages</h3>
+                <div class="skill-item">Verilog HDL</div>
+                <div class="skill-item">SystemVerilog</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">Assembly (8051)</div>
+            </div>
+            <div class="skills-col">
+                <h3>EDA Tools</h3>
+                <div class="skill-item">Cadence Suite</div>
+                <div class="skill-item">Synopsys Suite</div>
+                <div class="skill-item">ModelSim</div>
+                <div class="skill-item">Quartus Prime</div>
+                <div class="skill-item">Xilinx Vivado</div>
+                <div class="skill-item">NI Multisim</div>
+                <div class="skill-item">MATLAB</div>
+            </div>
+            <div class="skills-col">
+                <h3>Concepts</h3>
+                <div class="skill-item">ASIC Flow</div>
+                <div class="skill-item">FPGA Architecture</div>
+                <div class="skill-item">VLSI System Design</div>
+                <div class="skill-item">Semiconductor Physics</div>
+                <div class="skill-item">Analog Circuits</div>
+                <div class="skill-item">Digital Systems Design</div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="education">
+        <h2 class="section-header" data-aos="fade-left">Education</h2>
+        <div data-aos="fade-up">
+            <div class="edu-card" data-aos="fade-left">
+                <h4>B. Tech in ECE | VIT Vellore</h4>
+                <p>2022 - Present | <b>CGPA: 9.15/10</b></p>
+            </div>
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="200">
+                <h4>Higher Secondary (Grade XII) | CBSE</h4>
+                <p>2022 | National Model Senior Secondary School | <b>93.60%</b></p>
+            </div>
+            <div class="edu-card" data-aos="fade-left" data-aos-delay="400">
+                <h4>Secondary (Grade X) | CBSE</h4>
+                <p>2020 | KMC Public Senior Secondary School | <b>92%</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box" data-aos="zoom-in">
+            <h2 class="hero-title">Get in Touch</h2>
+            <a href="mailto:sriharias2204@gmail.com" class="contact-link">sriharias2204@gmail.com</a>
+            <a href="tel:+918870555334" class="contact-link">+91 8870555334</a>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span style="color:#fff; float:right; cursor:pointer; font-size:2.5rem;" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SRI HARI A S. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: false });
+
+        const techData = {
+            fpu: { title: "Runtime Hybrid FPU Chip", body: "I designed and implemented a runtime-predictive hybrid floating-point unit that dynamically selects between exact FP32 arithmetic, approximate FP32 arithmetic, and trans-precision BF16 computation based on the numerical characteristics of the input operands. Instead of using a fixed precision or blindly approximating all operations, the architecture performs operand-aware look-ahead analysis using exponent and mantissa statistics to predict numerical sensitivity, cancellation risk and precision requirements before computation. This enables the hardware to choose the lowest-cost arithmetic mode that still preserves computational correctness, achieving significant energy and performance efficiency for workloads such as machine-learning inference and signal processing. The complete design was implemented in Verilog and verified through functional simulation, synthesized using Cadence Genus, and taken through a full ASIC physical design flow in Cadence Innovus, culminating in GDS-II layout generation. <br>The architecture incorporates pipeline-safe prediction, operand isolation for real dynamic power savings, and IEEE-754 compliant exact arithmetic when required. By integrating adaptive precision control directly into the FPU datapath, this project demonstrates how future AI and edge-compute processors can achieve higher performance-per-watt without sacrificing numerical reliability, bridging the gap between accuracy-critical and error-tolerant computing.", report: "FPU_Report.pdf" },
+            ris: { title: "RIS Phase Shifter Chip", body: "This work focuses on the ASIC implementation of a phase shifter for a Reconfigurable/Reflective Intelligent Surface (RIS) to enhance next‑generation wireless communication links. It begins from a clear system‑level motivation: conventional tower‑based mobile systems at high frequencies suffer from severe attenuation, high power consumption, and congestion, while existing schemes like NOMA and RSMA, although power‑efficient, cannot by themselves guarantee reliable quality of service due to interference and limited SNR at the user end. To address this, the project designs an RIS‑assisted link in which a programmable metasurface constructively combines with the base‑station signal, improving SNR and reducing bit‑error rate by electronically steering reflected electromagnetic waves toward the users. <br>I worked on translating this concept into a complete ASIC-level digital architecture for a Reflective Intelligent Surface (RIS) comprising a pre‑computation and computation block, with modules for complex fixed-point matrix multiplication, transpose, Hamilton operator, and addition—to process complex-valued RIS signals and generate phase-control outputs for DAC-driven varactor tuning (thereby controlling the surface impedance and phase profile of the RIS in real time), with now just 45-nm Cadence synthesis and physical design flow work pending.", report: null },
+            fft: { title: "CORDIC FFT on FPGA", body: "Implementated a Radix-2 FFT using the Rotation Mode of the CORDIC Algorithm, optimized with a pipelined architecture for parallel processing of butterfly computations. Fast Fourier Transform (FFT) is a crucial algorithm in signal processing and I leveraged the CORDIC algorithm to efficiently compute sine and cosine values without using multipliers, making it highly hardware-friendly. By adopting a pipelined architecture, I maximized parallelism, allowing multiple butterfly computations to execute simultaneously, significantly improving processing speed. The design was carefully structured to balance latency, throughput, and resource utilization, ensuring an efficient and scalable implementation.<br><br>After coding the design in Verilog, I successfully deployed and tested it on an FPGA to validate its performance in real-time applications. <br>Gained Knowledge : CORDIC Algorithm, FFT Optimization, Pipelined Architectures and FPGA-based DSP Acceleration.", report: null },
+            processor: { title: "16-bit Processor", body: "This processor includes fundamental components such as 16-bit registers (including IR - for separating opcode), a multiplexer, an ALU, a control unit and a memory interface. The processor executes basic instructions like that of an 8051, controlled through a structured finite state machine. I ensured correct instruction execution by implementing a control sequencing mechanism that governs data flow across the registers and ALU operations. After completing the Verilog implementation, I performed functional simulations to verify correctness before deploying the design on an FPGA. <br>Gained Knowledge : Processor Architecture, Control Signal Coordination, Memory Interfacing and System-level Debugging.", report: null },
+            dnn: { title: "Reconfigurable DNN Convolution Operator", body: "This project presents a high-performance Reconfigurable Convolution Core designed to accelerate deep neural networks like DenseNet-121 and ResNet in resource-constrained edge environments. Addressing the varying computational demands of modern CNNs, the core features a dynamic architecture capable of runtime switching between 1x1, 3x3 and 7x7 convolution modes. By isolating the computational engine, this design optimizes the critical arithmetic path for FPGA and ASIC implementation, providing a scalable solution that adapts to both the large spatial features of early layers and the high-channel density of deep bottleneck layers.<br>A key innovation of this architecture is its Hybrid Stationary Dataflow, which maximizes hardware utilization by intelligently shifting strategies. While standard spatial layers utilize a Weight Stationary approach, the core switches to a Pixel Stationary (Filter Parallel) mode for 1x1 bottlenecks, utilizing a novel 'Data Swap' technique to repurpose internal registers and achieve a 9x throughput increase without additional area. Furthermore, the datapath is optimized using BFloat16 Approximate Computing, featuring a pipelined 8x7 Dadda multiplier with mantissa truncation. This combination of architectural flexibility and arithmetic approximation significantly reduces power consumption and logic footprint while maintaining inference accuracy.<br>To overcome the high hardware cost of standard floating-point arithmetic, I implemented a custom bfloat16 (BF16) computing unit that offers a superior trade-off between dynamic range and resource utilization. I developed and validated two distinct types of approximate multipliers to maximize efficiency across different hardware platforms. Both architectures have been modelled in Python for bit-accurate simulation and fully implemented in synthesizable Verilog, with performance verified against PyTorch ground truths.", report: null },
+            gps: { title: "Real-time GPS Tracking", body: "<b>Objective:</b><br>The goal was to extract critical GPS information such as latitude, longitude, altitude, fix quality, number of satellites, and Horizontal Dilution of Precision (HDOP). This data was then processed and displayed dynamically on Google Maps. This project involved exploring GPS data acquisition, processing and real-time tracking. <br><br><b>Outcome:</b><br>By executing the program,the system continuously provided accurate GPS coordinates, updating the user’s real-time location on Google Maps.", report: null },
+            nit: { title: "Research Intern | NIT Trichy", body: "This project focuses on the design of FPGA-optimized approximate multipliers for high-performance and energy-efficient digital systems. I proposed a novel architecture for adder which hierarchically integrated to build scalable 8×8, 16×16, and 32×32 multipliers from smaller 4×4 blocks. This architecture is compared which latest adder architecture from a Transaction paper (2025) to prove that it is more efficient and faster. I also proposed a hybrid architecture that combines compressor-based arithmetic with LUT-level optimization using FPGA primitives such as LUT6_2 and CARRY4. Custom approximate 4:2 compressors were developed and then integrated into LUT-style coding in verilog. Unlike traditional approximate multipliers that are mainly optimized for ASICs, this design is tailored specifically for FPGA fabrics, enabling better logic packing, lower routing overhead, and improved performance after synthesis.<br><br>To validate the practical effectiveness of the proposed multipliers, the design was evaluated using image multiplication in image-processing pipelines, where arithmetic errors directly affect visual quality. Metrics such as PSNR, SSIM, MAE, RMSE, NRMSE, NMED, and MRED were used to quantify both numerical and perceptual accuracy. The results demonstrate that the proposed architectures achieve significant reductions in area, power and delay while maintaining high image quality, with PSNR values above 40 dB and strong SSIM scores. This makes the design well-suited for edge AI, signal processing and embedded vision systems, where energy efficiency and real-time performance are critical.", report: null },
+            kineton: { title: "VLSI Intern | Kineton Technologies", body: "The project during the internship features a hardware-accelerated implementation of the Otsu Thresholding algorithm, developed in synthesizable SystemVerilog for real-time FPGA and ASIC image processing applications. The design utilizes a robust 6-state Finite State Machine (FSM) to efficiently manage streaming pixel data, build histogram distributions, and calculate the optimal intensity threshold by maximizing between-class variance. A primary technical challenge addressed was the management of high-precision arithmetic; I implemented a custom 64-bit data path with strategic bit-shifting and normalization to prevent arithmetic overflow during the squaring of large variance components, ensuring numerical stability without excessive hardware overhead. To guarantee industry-standard reliability, the module was verified through a co-simulation flow against a Python-based OpenCV golden model, achieving bit-perfect results and demonstrating a successful translation of complex mathematical models into resource-optimized hardware architecture. <br><br>This project also contain a high-performance VLSI implementation of arithmetic units, ranging from fundamental fixed-point operators to complex IEEE-754 single-precision (FP32) floating-point hardware. The core of the design features a Signed Wallace Tree Multiplier and a Carry-Save Adder reduction tree optimized for speed and area, utilizing the Baugh-Wooley algorithm for efficient 2's complement arithmetic. These units are paired with a high-speed 8-bit Kogge-Stone Adder (KSA), a parallel-prefix architecture designed to minimize critical path delay. Beyond fixed-point logic, the project extends into advanced computational blocks, including a modular FP32 Addition and Subtraction unit and a Single-Precision Floating-Point Multiplier, both meticulously designed to handle normalization, rounding, and exception handling. Developed with an eye toward ASIC design flows, this codebase demonstrates a deep understanding of hardware optimization, timing constraints, and the mathematical precision required for modern digital signal processing and general-purpose computing.", report: "Kineton_Report.pdf" },
+            maven: { title: "VLSI Intern | Maven Silicon", body: "<b>Project Overview:</b><br>SPI is a popular synchronous communication protocol used in embedded systems for interfacing peripherals like sensors, ADCs, and DACs. My focus was on designing the SPI Master Core, which controls data exchange between the master and slave devices. The core supports full-duplex communication and is configured to handle flexible word lengths and multiple slave devices.<br><br><b>Key Components:</b><br><b>SPI Core Architecture:</b><br>The core architecture consists of two critical blocks: the Clock Generation Block and the Shift Register Block. The Clock Generation Block creates the clock signal that controls data transmission timing, while the Shift Register Block handles parallel-to-serial conversion for data transmission and serial-to-parallel conversion for data reception.<br><b>Registers:</b><br>The Transmitter (Tx) and Receiver (Rx) Registers store data for transmission and reception. The 32-bit registers can handle varying word lengths, making the core adaptable to different devices and communication needs.<br><b>Core Configuration:</b><br>The core supports configurable parameters like the number of slave devices (up to 32), word length (up to 128 bits), and transmission order (MSB/LSB first). These features make the core highly adaptable to different embedded system designs.<br><b>Simulation and Synthesis:</b><br>I verified the design using simulation tools to ensure the SPI core operated correctly under various conditions. After confirming the functionality, I synthesized the design to convert the Verilog code into a gate-level representation. The synthesis process optimized the core for performance, area, and power efficiency, preparing it for potential hardware implementation.", report: null },
+            pub: { title: "Journal Contribution Details", body: "My work is creating the LUT based higher order adder (1st in the paper) which is used to create higher order LUT based multiplier using lower order multiplier and my novel adder (which is proven to be more efficient and faster than the latest in 2025 IEEE Transactions paper). Converting the 2 compressor based multiplier (2nd and 3rd in the paper) to LUT coding style for FPGA and also writing the research paper. These works are conducted during the internship period at NIT Trichy.<br><br><b>Abstract</b><br>Approximate computing has gained significant traction as a means to reduce power consumption and hardware complexity in applications where small inaccuracies are tolerable, such as image and signal processing. This paper introduces three FPGA-specific approximate multiplier architectures that leverage custom-designed 4:2 and 2:2 compressors along with a pipelined adder, explicitly optimized for Xilinx Artix-7 FPGA primitives (LUT6 2 and CARRY4). By combining aggressive partial product truncation with LUT-level coding and compressor–adder co-design, the proposed architectures enable scalable construction of 8 × 8, 16 × 16, and 32 × 32 multipliers. Synthesis results demonstrate up to 68% fewer LUTs and 9% lower power consumption compared to conventional Vedic multipliers, with improved area–delay and power-delay product metrics. Image quality evaluation using MAE, NRMSE, PSNR and SSIM shows that the best design achieves high fidelity (PSNR above 43 dB and SSIM close to 0.99) while maintaining low resource usage. The suggested architectures are scalable and reconfigurable features enable them to be used with energy-constrained FPGA accelerators and edge AI systems, bridging the gap between approximate designs that rely on ASICs and hardware that is optimised for FPGAs.", report: null },
+            cert1: { title: "ASIC Flow (VIT Vellore)", body: "Learned about Routing, Placement, Floorplanning, CTS, STA. Hands-on experience on using Cadence tools (Nclaunch, Genus, LEC, Innovus). Also did a task on generating GDS-II file for an ALU architecture which consists of Arithmetic, control, multiplexer and shifter units." }
+        };
+
+        function openModal(id) {
+            const d = techData[id];
+            let reportHtml = (d.report && !["maven", "gps", "fft", "processor", "fpu", "kineton"].includes(id)) ? `<a href="reports/${d.report}" target="_blank" class="report-btn">View Full Report (PDF)</a>` : "";
+            document.getElementById('modalBody').innerHTML = `
+                <h2 style="color:var(--primary); margin-bottom:1.5rem; font-size:2.2rem;">${d.title}</h2>
+                <div style="font-size:1.3rem; line-height:1.8;">${d.body}</div>
+                ${reportHtml}
+            `;
+            document.getElementById('projectModal').style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        function closeModal() { document.getElementById('projectModal').style.display = "none"; document.body.style.overflow = "auto"; }
+        window.onclick = (e) => { if(e.target == document.getElementById('projectModal')) closeModal(); }
+    </script>
+</body>
+</html>
 
 
 
